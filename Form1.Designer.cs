@@ -1,6 +1,6 @@
 ﻿namespace ferreirosDeYork
 {
-    partial class Form1
+    partial class TelaInicial
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,15 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaInicial));
             this.SuspendLayout();
             // 
-            // Form1
+            // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(898, 474);
+            this.ForeColor = System.Drawing.Color.Cornsilk;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "TelaInicial";
+            this.Text = "Kinge Me";
             this.ResumeLayout(false);
 
         }

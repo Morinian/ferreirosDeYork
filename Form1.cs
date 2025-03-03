@@ -11,9 +11,9 @@ using KingMeServer;
 
 namespace ferreirosDeYork
 {
-    public partial class Form1: Form
+    public partial class TelaInicial: Form
     {
-        public Form1()
+        public TelaInicial()
         {
             InitializeComponent();
         }
