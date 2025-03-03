@@ -16,6 +16,57 @@ namespace ferreirosDeYork
         public TelaInicial()
         {
             InitializeComponent();
+            lblVersaoJogo.Text = ("V."+Jogo.versao);
+        }
+
+        private void btnListarPartida_Click(object sender, EventArgs e)
+        {
+            //Pegando o valor das partidas
+            string retornoPartida = Jogo.ListarPartidas("T");
+
+            //Tratando o retorno das partidas
+            retornoPartida = retornoPartida.Replace("\r", ""); 
+            retornoPartida = retornoPartida.Substring(0, retornoPartida.Length - 1);
+            string[] listaPartida = retornoPartida.Split('\n'); // separando os itens da lista pelo \n
+
+            //Listando as partidas 
+            for(int i = 0; i < listaPartida.Length - 1; i++)
+            {
+                lstPartidas.Items.Add(listaPartida[i]);
+            }
+        }
+
+        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Pegando valor da lst que esta selecionada
+            string itemPartida = lstPartidas.SelectedItem.ToString();
+            string[] dadosPartida = itemPartida.Split(','); // separando os itens pela ,
+
+            int idPartida = Convert.ToInt32(dadosPartida[0]);
+            string nomePartida = dadosPartida[1];
+            string dataPartida = dadosPartida[2];
+
+            //Colando os valores na Label
+            lblPartidaId.Text = idPartida.ToString();
+            lblNomePartida.Text = nomePartida;
+            lblDataPartida.Text = dataPartida;
+
+            //---JOGADORES---
+            string retornoJogador = Jogo.ListarJogadores(idPartida);
+
+            //Tratando o retorno das partidas
+            retornoJogador = retornoJogador.Replace("\r", "");
+            string[] listaJogadores = retornoJogador.Split('\n'); // separando os itens da lista pelo \n
+
+            //Limpando list box
+            lstJogadores.Items.Clear();
+
+            //Listando as partidas 
+            for (int i = 0; i < listaJogadores.Length - 1; i++)
+            {
+                lstJogadores.Items.Add(listaJogadores[i]);
+            }
+
         }
     }
 }
