@@ -13,9 +13,12 @@ namespace ferreirosDeYork
 {
     public partial class TelaInicial: Form
     {
+        private string nomeGrupo = "Ferreiros de York";
         public TelaInicial()
         {
             InitializeComponent();
+            txtNomeGrupoCriarPartida.Text = nomeGrupo;
+            lblNomeGrupo.Text = nomeGrupo;
             lblVersaoJogo.Text = ("V."+Jogo.versao);
         }
 
@@ -26,7 +29,6 @@ namespace ferreirosDeYork
 
             //Tratando o retorno das partidas
             retornoPartida = retornoPartida.Replace("\r", ""); 
-            retornoPartida = retornoPartida.Substring(0, retornoPartida.Length - 1);
             string[] listaPartida = retornoPartida.Split('\n'); // separando os itens da lista pelo \n
 
             //Listando as partidas 
@@ -66,6 +68,52 @@ namespace ferreirosDeYork
             {
                 lstJogadores.Items.Add(listaJogadores[i]);
             }
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstJogadores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TelaInicial_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bntCriarPartida_Click(object sender, EventArgs e)
+        {  
+            string resulatdoCriacao = Jogo.CriarPartida(
+                txtNomeCriarPartida.Text,
+                txtSenhaCriarPartida.Text,
+                txtNomeGrupoCriarPartida.Text
+            );
+            if(resulatdoCriacao.StartsWith("ERRO"))
+                MessageBox.Show(resulatdoCriacao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                txtNomeCriarPartida.Text = "";
+                txtSenhaCriarPartida.Text = "";
+            }
+        }
+
+        private void lblNomePartida_Click(object sender, EventArgs e)
+        {
 
         }
     }
