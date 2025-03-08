@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaLobby));
             this.lblJogadoresNaPartida = new System.Windows.Forms.Label();
             this.lstJogadores = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@
             this.lblIdJogadorIdPartida = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblSenhaJogadorPartida = new System.Windows.Forms.Label();
+            this.lblNomeGrupo = new System.Windows.Forms.Label();
+            this.lblVersaoJogo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblJogadoresNaPartida
@@ -238,13 +241,38 @@
             this.lblSenhaJogadorPartida.Size = new System.Drawing.Size(0, 27);
             this.lblSenhaJogadorPartida.TabIndex = 36;
             // 
+            // lblNomeGrupo
+            // 
+            this.lblNomeGrupo.AutoSize = true;
+            this.lblNomeGrupo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeGrupo.ForeColor = System.Drawing.Color.White;
+            this.lblNomeGrupo.Location = new System.Drawing.Point(275, 545);
+            this.lblNomeGrupo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNomeGrupo.Name = "lblNomeGrupo";
+            this.lblNomeGrupo.Size = new System.Drawing.Size(104, 15);
+            this.lblNomeGrupo.TabIndex = 39;
+            this.lblNomeGrupo.Text = "Ferreiros de york";
+            // 
+            // lblVersaoJogo
+            // 
+            this.lblVersaoJogo.AutoSize = true;
+            this.lblVersaoJogo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersaoJogo.ForeColor = System.Drawing.Color.Black;
+            this.lblVersaoJogo.Location = new System.Drawing.Point(387, 544);
+            this.lblVersaoJogo.Name = "lblVersaoJogo";
+            this.lblVersaoJogo.Size = new System.Drawing.Size(46, 16);
+            this.lblVersaoJogo.TabIndex = 38;
+            this.lblVersaoJogo.Text = "V.Jogo";
+            // 
             // TelaLobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(479, 566);
+            this.ClientSize = new System.Drawing.Size(479, 581);
+            this.Controls.Add(this.lblNomeGrupo);
+            this.Controls.Add(this.lblVersaoJogo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblSenhaJogadorPartida);
             this.Controls.Add(this.label5);
@@ -262,6 +290,7 @@
             this.Controls.Add(this.lblPartidaId);
             this.Controls.Add(this.lblJogadoresNaPartida);
             this.Controls.Add(this.lstJogadores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaLobby";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lobby";
@@ -289,5 +318,7 @@
         private System.Windows.Forms.Label lblIdJogadorIdPartida;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblSenhaJogadorPartida;
+        private System.Windows.Forms.Label lblNomeGrupo;
+        private System.Windows.Forms.Label lblVersaoJogo;
     }
 }

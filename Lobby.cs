@@ -13,8 +13,10 @@ namespace ferreirosDeYork
 {
     public partial class TelaLobby: Form
     {
+        private string nomeGrupo = "Ferreiros de York";
         private TelaInicial menu; 
 
+        //Informações que são do Menu
         public string idPartidaSelecionada { get; set; }
         public string nomePartidaSelecionada { get; set; }
         public string senhaPartidaSelecionada { get; set; }
@@ -26,6 +28,9 @@ namespace ferreirosDeYork
         {
             InitializeComponent();
             this.menu = menu;
+
+            lblNomeGrupo.Text = nomeGrupo;
+            lblVersaoJogo.Text = ("V." + Jogo.versao);
         }
 
         public void ListarJogadores(int idPartida)
@@ -55,6 +60,7 @@ namespace ferreirosDeYork
             lblSenhaPartida.Text = senhaPartidaSelecionada;
             lblNomeJogadorPartida.Text = nomeJogadorSelecionado;
 
+            //pergando o id e a senha do jogador que vem em uma string unica
             string[] dadosJogador = resultadoEntrarPartidaSelecionada.Split(',');
 
             lblIdJogadorIdPartida.Text = dadosJogador[0];
