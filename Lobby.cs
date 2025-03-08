@@ -24,6 +24,9 @@ namespace ferreirosDeYork
 
         private void btnListarPartida_Click(object sender, EventArgs e)
         {
+            //Limpando list box
+            lstPartidas.Items.Clear();
+
             //Pegando o valor das partidas
             string retornoPartida = Jogo.ListarPartidas("T");
 
@@ -70,6 +73,21 @@ namespace ferreirosDeYork
             }
 
         }
+        private void bntCriarPartida_Click(object sender, EventArgs e)
+        {
+            string resulatdoCriacao = Jogo.CriarPartida(
+                txtNomeCriarPartida.Text,
+                txtSenhaCriarPartida.Text,
+                txtNomeGrupoCriarPartida.Text
+            );
+            if (resulatdoCriacao.StartsWith("ERRO"))
+                MessageBox.Show(resulatdoCriacao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                txtNomeCriarPartida.Text = "";
+                txtSenhaCriarPartida.Text = "";
+            }
+        }
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -94,22 +112,6 @@ namespace ferreirosDeYork
         private void TelaInicial_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void bntCriarPartida_Click(object sender, EventArgs e)
-        {  
-            string resulatdoCriacao = Jogo.CriarPartida(
-                txtNomeCriarPartida.Text,
-                txtSenhaCriarPartida.Text,
-                txtNomeGrupoCriarPartida.Text
-            );
-            if(resulatdoCriacao.StartsWith("ERRO"))
-                MessageBox.Show(resulatdoCriacao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
-            {
-                txtNomeCriarPartida.Text = "";
-                txtSenhaCriarPartida.Text = "";
-            }
         }
 
         private void lblNomePartida_Click(object sender, EventArgs e)
