@@ -50,11 +50,12 @@
             this.lblNomeGrupoCriarPartida = new System.Windows.Forms.Label();
             this.txtNomeGrupoCriarPartida = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.bntCriarPartida = new System.Windows.Forms.Button();
+            this.btnCriarPartida = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNomeJogador = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEntrarPartida = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnListarPartida
@@ -161,7 +162,7 @@
             this.lblVersaoJogo.AutoSize = true;
             this.lblVersaoJogo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVersaoJogo.ForeColor = System.Drawing.Color.Black;
-            this.lblVersaoJogo.Location = new System.Drawing.Point(931, 491);
+            this.lblVersaoJogo.Location = new System.Drawing.Point(931, 481);
             this.lblVersaoJogo.Name = "lblVersaoJogo";
             this.lblVersaoJogo.Size = new System.Drawing.Size(46, 16);
             this.lblVersaoJogo.TabIndex = 10;
@@ -182,7 +183,7 @@
             this.lblNomeGrupo.AutoSize = true;
             this.lblNomeGrupo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomeGrupo.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblNomeGrupo.Location = new System.Drawing.Point(819, 492);
+            this.lblNomeGrupo.Location = new System.Drawing.Point(819, 482);
             this.lblNomeGrupo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNomeGrupo.Name = "lblNomeGrupo";
             this.lblNomeGrupo.Size = new System.Drawing.Size(104, 15);
@@ -292,19 +293,19 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Criar Partida";
             // 
-            // bntCriarPartida
+            // btnCriarPartida
             // 
-            this.bntCriarPartida.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.bntCriarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntCriarPartida.ForeColor = System.Drawing.Color.Black;
-            this.bntCriarPartida.Location = new System.Drawing.Point(719, 86);
-            this.bntCriarPartida.Margin = new System.Windows.Forms.Padding(2);
-            this.bntCriarPartida.Name = "bntCriarPartida";
-            this.bntCriarPartida.Size = new System.Drawing.Size(81, 26);
-            this.bntCriarPartida.TabIndex = 22;
-            this.bntCriarPartida.Text = "Criar";
-            this.bntCriarPartida.UseVisualStyleBackColor = false;
-            this.bntCriarPartida.Click += new System.EventHandler(this.bntCriarPartida_Click);
+            this.btnCriarPartida.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnCriarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCriarPartida.ForeColor = System.Drawing.Color.Black;
+            this.btnCriarPartida.Location = new System.Drawing.Point(719, 86);
+            this.btnCriarPartida.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCriarPartida.Name = "btnCriarPartida";
+            this.btnCriarPartida.Size = new System.Drawing.Size(81, 26);
+            this.btnCriarPartida.TabIndex = 22;
+            this.btnCriarPartida.Text = "Criar";
+            this.btnCriarPartida.UseVisualStyleBackColor = false;
+            this.btnCriarPartida.Click += new System.EventHandler(this.btnCriarPartida_Click);
             // 
             // label5
             // 
@@ -339,18 +340,32 @@
             this.txtNomeJogador.Size = new System.Drawing.Size(152, 26);
             this.txtNomeJogador.TabIndex = 24;
             // 
-            // button1
+            // btnEntrarPartida
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(825, 325);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 59);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Entrar Partida";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnEntrarPartida.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnEntrarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrarPartida.ForeColor = System.Drawing.Color.Black;
+            this.btnEntrarPartida.Location = new System.Drawing.Point(825, 339);
+            this.btnEntrarPartida.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEntrarPartida.Name = "btnEntrarPartida";
+            this.btnEntrarPartida.Size = new System.Drawing.Size(152, 58);
+            this.btnEntrarPartida.TabIndex = 26;
+            this.btnEntrarPartida.Text = "Entrar Partida";
+            this.btnEntrarPartida.UseVisualStyleBackColor = false;
+            this.btnEntrarPartida.Click += new System.EventHandler(this.btnEntrarPartida_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnSair.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSair.Location = new System.Drawing.Point(349, 449);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(153, 48);
+            this.btnSair.TabIndex = 27;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // TelaInicial
             // 
@@ -359,11 +374,12 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1017, 534);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSair);
+            this.Controls.Add(this.btnEntrarPartida);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtNomeJogador);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.bntCriarPartida);
+            this.Controls.Add(this.btnCriarPartida);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblNomeGrupoCriarPartida);
             this.Controls.Add(this.txtNomeGrupoCriarPartida);
@@ -419,11 +435,12 @@
         private System.Windows.Forms.Label lblNomeGrupoCriarPartida;
         private System.Windows.Forms.TextBox txtNomeGrupoCriarPartida;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button bntCriarPartida;
+        private System.Windows.Forms.Button btnCriarPartida;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNomeJogador;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEntrarPartida;
+        private System.Windows.Forms.Button btnSair;
     }
 }
 

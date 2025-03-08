@@ -73,7 +73,7 @@ namespace ferreirosDeYork
             }
 
         }
-        private void bntCriarPartida_Click(object sender, EventArgs e)
+        private void btnCriarPartida_Click(object sender, EventArgs e)
         {
             string resulatdoCriacao = Jogo.CriarPartida(
                 txtNomeCriarPartida.Text,
@@ -87,6 +87,18 @@ namespace ferreirosDeYork
                 txtNomeCriarPartida.Text = "";
                 txtSenhaCriarPartida.Text = "";
             }
+        }
+        private void btnEntrarPartida_Click(object sender, EventArgs e)
+        {
+            this.Hide(); //esconder menu
+            TelaLobby lobby = new TelaLobby(); 
+            lobby.ShowDialog(); //iniciar lobby
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            //Fechar aplicação
+            this.Close();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -118,5 +130,6 @@ namespace ferreirosDeYork
         {
 
         }
+
     }
 }
