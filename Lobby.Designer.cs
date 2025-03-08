@@ -221,7 +221,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(479, 587);
+            this.ClientSize = new System.Drawing.Size(479, 566);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblIdJogadorIdPartida);
             this.Controls.Add(this.label4);

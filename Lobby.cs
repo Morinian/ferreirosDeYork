@@ -45,29 +45,6 @@ namespace ferreirosDeYork
                 lstJogadores.Items.Add(listaJogadores[i]);
             }
         }
-        public string ConsultarJogador(int idPartida, string nomeJogador)
-        {
-            //---JOGADORES---
-            string retornoJogador = Jogo.ListarJogadores(idPartida);
-
-            //Tratando o retorno
-            retornoJogador = retornoJogador.Replace("\r", "");
-            string[] consultarJogador = retornoJogador.Split('\n'); 
-
-            // Percorrer a lista e buscar o nome do jogador
-            for (int i = 0; i < consultarJogador.Length; i++)
-            {
-                string[] dados = consultarJogador[i].Split(','); // Separar 
-
-                if (dados[1].Trim() == nomeJogador.Trim()) //tirando os espaços por que vai que né
-                {
-                    return dados[0]; // Retorna o id
-                }
-            }
-
-            return "Jogador não encontrado";
-
-        }
 
         public void AtualizarTela()
         {
@@ -76,7 +53,6 @@ namespace ferreirosDeYork
             lblNomePartida.Text = nomePartidaSelecionada;
             lblSenhaPartida.Text = senhaPartidaSelecionada;
             lblNomeJogadorPartida.Text = nomeJogadorSelecionado;
-            lblIdJogadorIdPartida.Text = ConsultarJogador(Convert.ToInt32(idPartidaSelecionada), nomeJogadorSelecionado);
             ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
         }
 
