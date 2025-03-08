@@ -39,7 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblDataPartida = new System.Windows.Forms.Label();
             this.lblVersaoJogo = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblNomeGrupo = new System.Windows.Forms.Label();
             this.lblJogadoresNaPartida = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -169,16 +168,6 @@
             this.lblVersaoJogo.Size = new System.Drawing.Size(46, 16);
             this.lblVersaoJogo.TabIndex = 10;
             this.lblVersaoJogo.Text = "V.Jogo";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "label3";
             // 
             // lblNomeGrupo
             // 
@@ -395,7 +384,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.ClientSize = new System.Drawing.Size(1017, 534);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtSenhaEntrarPartida);
@@ -415,7 +404,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblJogadoresNaPartida);
             this.Controls.Add(this.lblNomeGrupo);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblVersaoJogo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblDataPartida);
@@ -449,7 +437,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblDataPartida;
         private System.Windows.Forms.Label lblVersaoJogo;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblNomeGrupo;
         private System.Windows.Forms.Label lblJogadoresNaPartida;
         private System.Windows.Forms.Label label7;

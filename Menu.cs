@@ -16,6 +16,8 @@ namespace ferreirosDeYork
         private string nomeGrupo = "Ferreiros de York";
         private string idPartidaSelecionada;
         private string nomePartidaSelecionada;
+        private string senhaPartidaSelecionada;
+        private string nomeJogadorSelecionado;
         public TelaInicial()
         {
             InitializeComponent();
@@ -95,6 +97,9 @@ namespace ferreirosDeYork
         }
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
+            //precisamos fazer também se o jogador existir entrar na partida com os dados dele
+
+            //Mandando os parametros para entrar na partida
             string resultadoEntrar = Jogo.Entrar(
                 Convert.ToInt32(lblPartidaId.Text),
                 txtNomeJogador.Text,
@@ -103,7 +108,7 @@ namespace ferreirosDeYork
 
             if (resultadoEntrar.StartsWith("ERRO"))
             {
-                MessageBox.Show("🔥 SENHA ERRADA, HAHAHA! 🔥", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("🔥 Algo deu errado 🔥", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -113,6 +118,8 @@ namespace ferreirosDeYork
                 //Valores para o Lobby
                 lobby.idPartidaSelecionada = lblPartidaId.Text;
                 lobby.nomePartidaSelecionada = lblNomePartida.Text;
+                lobby.nomeJogadorSelecionado = txtNomeJogador.Text;
+                lobby.senhaPartidaSelecionada = txtSenhaEntrarPartida.Text;
                 lobby.AtualizarTela();
                 lobby.ShowDialog(); //iniciar lobby
             }
