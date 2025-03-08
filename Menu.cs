@@ -93,7 +93,7 @@ namespace ferreirosDeYork
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
             this.Hide(); //esconder menu
-            TelaLobby lobby = new TelaLobby();
+            TelaLobby lobby = new TelaLobby(this);
 
             //Valores para o Lobby
             lobby.idPartidaSelecionada = lblPartidaId.Text;

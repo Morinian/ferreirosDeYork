@@ -13,14 +13,16 @@ namespace ferreirosDeYork
 {
     public partial class TelaLobby: Form
     {
+        private TelaInicial menu;
+
         public string idPartidaSelecionada { get; set; }
         public string nomePartidaSelecionada { get; set; }
 
 
-        public TelaLobby()
+        public TelaLobby(TelaInicial menu)
         {
             InitializeComponent();
-
+            this.menu = menu;
         }
 
         public void ListarJogadores(int idPartida)
@@ -55,9 +57,8 @@ namespace ferreirosDeYork
 
         private void btnVoltarLobby_Click(object sender, EventArgs e)
         {
-            TelaInicial menu = new TelaInicial();
-            menu.Show();
             this.Close();
+            menu.Show();
         }
 
         private void btnAtualizarJogadores_Click(object sender, EventArgs e)
