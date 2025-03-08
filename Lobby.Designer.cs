@@ -36,6 +36,7 @@
             this.lblPartidaId = new System.Windows.Forms.Label();
             this.btnIniciarPartida = new System.Windows.Forms.Button();
             this.btnVoltarLobby = new System.Windows.Forms.Button();
+            this.btnAtualizarJogadores = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblJogadoresNaPartida
@@ -115,6 +116,7 @@
             this.btnIniciarPartida.TabIndex = 27;
             this.btnIniciarPartida.Text = "Iniciar Partida";
             this.btnIniciarPartida.UseVisualStyleBackColor = false;
+            this.btnIniciarPartida.Click += new System.EventHandler(this.btnIniciarPartida_Click);
             // 
             // btnVoltarLobby
             // 
@@ -130,12 +132,27 @@
             this.btnVoltarLobby.UseVisualStyleBackColor = false;
             this.btnVoltarLobby.Click += new System.EventHandler(this.btnVoltarLobby_Click);
             // 
+            // btnAtualizarJogadores
+            // 
+            this.btnAtualizarJogadores.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnAtualizarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtualizarJogadores.ForeColor = System.Drawing.Color.Black;
+            this.btnAtualizarJogadores.Location = new System.Drawing.Point(378, 262);
+            this.btnAtualizarJogadores.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAtualizarJogadores.Name = "btnAtualizarJogadores";
+            this.btnAtualizarJogadores.Size = new System.Drawing.Size(44, 38);
+            this.btnAtualizarJogadores.TabIndex = 29;
+            this.btnAtualizarJogadores.Text = "🔄";
+            this.btnAtualizarJogadores.UseVisualStyleBackColor = false;
+            this.btnAtualizarJogadores.Click += new System.EventHandler(this.btnAtualizarJogadores_Click);
+            // 
             // TelaLobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(479, 480);
+            this.ClientSize = new System.Drawing.Size(479, 484);
+            this.Controls.Add(this.btnAtualizarJogadores);
             this.Controls.Add(this.btnVoltarLobby);
             this.Controls.Add(this.btnIniciarPartida);
             this.Controls.Add(this.label2);
@@ -162,5 +179,6 @@
         private System.Windows.Forms.Label lblPartidaId;
         private System.Windows.Forms.Button btnIniciarPartida;
         private System.Windows.Forms.Button btnVoltarLobby;
+        private System.Windows.Forms.Button btnAtualizarJogadores;
     }
 }

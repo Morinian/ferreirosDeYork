@@ -14,6 +14,8 @@ namespace ferreirosDeYork
     public partial class TelaInicial: Form
     {
         private string nomeGrupo = "Ferreiros de York";
+        private string idPartidaSelecionada;
+        private string nomePartidaSelecionada;
         public TelaInicial()
         {
             InitializeComponent();
@@ -91,7 +93,12 @@ namespace ferreirosDeYork
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
             this.Hide(); //esconder menu
-            TelaLobby lobby = new TelaLobby(); 
+            TelaLobby lobby = new TelaLobby();
+
+            //Valores para o Lobby
+            lobby.idPartidaSelecionada = lblPartidaId.Text;
+            lobby.nomePartidaSelecionada = lblNomePartida.Text;
+            lobby.AtualizarTela();
             lobby.ShowDialog(); //iniciar lobby
         }
 
@@ -99,6 +106,7 @@ namespace ferreirosDeYork
         {
             //Fechar aplicação
             this.Close();
+            Application.Exit();
         }
 
         private void label5_Click(object sender, EventArgs e)
