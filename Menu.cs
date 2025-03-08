@@ -68,7 +68,7 @@ namespace ferreirosDeYork
             //Limpando list box
             lstJogadores.Items.Clear();
 
-            //Listando as partidas 
+            //Listando os jogadores 
             for (int i = 0; i < listaJogadores.Length - 1; i++)
             {
                 lstJogadores.Items.Add(listaJogadores[i]);
@@ -77,11 +77,14 @@ namespace ferreirosDeYork
         }
         private void btnCriarPartida_Click(object sender, EventArgs e)
         {
+            //Passando os parametros para criar a partida
             string resulatdoCriacao = Jogo.CriarPartida(
                 txtNomeCriarPartida.Text,
                 txtSenhaCriarPartida.Text,
                 txtNomeGrupoCriarPartida.Text
             );
+
+            //Tratando ERRO
             if (resulatdoCriacao.StartsWith("ERRO"))
                 MessageBox.Show(resulatdoCriacao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
@@ -92,14 +95,28 @@ namespace ferreirosDeYork
         }
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
-            this.Hide(); //esconder menu
-            TelaLobby lobby = new TelaLobby(this);
+            string resultadoEntrar = Jogo.Entrar(
+                Convert.ToInt32(lblPartidaId.Text),
+                txtNomeJogador.Text,
+                txtSenhaEntrarPartida.Text
+            );
 
-            //Valores para o Lobby
-            lobby.idPartidaSelecionada = lblPartidaId.Text;
-            lobby.nomePartidaSelecionada = lblNomePartida.Text;
-            lobby.AtualizarTela();
-            lobby.ShowDialog(); //iniciar lobby
+            if (resultadoEntrar.StartsWith("ERRO"))
+            {
+                MessageBox.Show("🔥 SENHA ERRADA, HAHAHA! 🔥", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                this.Hide(); //esconder menu
+                TelaLobby lobby = new TelaLobby(this); //passando o menu como referencia no lobby para conseguir voltar para cá
+
+                //Valores para o Lobby
+                lobby.idPartidaSelecionada = lblPartidaId.Text;
+                lobby.nomePartidaSelecionada = lblNomePartida.Text;
+                lobby.AtualizarTela();
+                lobby.ShowDialog(); //iniciar lobby
+            }
+
         }
 
         private void btnSair_Click(object sender, EventArgs e)

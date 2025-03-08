@@ -13,7 +13,7 @@ namespace ferreirosDeYork
 {
     public partial class TelaLobby: Form
     {
-        private TelaInicial menu;
+        private TelaInicial menu; 
 
         public string idPartidaSelecionada { get; set; }
         public string nomePartidaSelecionada { get; set; }
@@ -50,10 +50,7 @@ namespace ferreirosDeYork
             lblNomePartida.Text = nomePartidaSelecionada;
             ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
         }
-        private void lstJogadores_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnVoltarLobby_Click(object sender, EventArgs e)
         {
@@ -66,6 +63,10 @@ namespace ferreirosDeYork
             ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
         }
         private void btnIniciarPartida_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void lstJogadores_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
