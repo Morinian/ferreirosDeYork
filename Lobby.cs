@@ -19,6 +19,7 @@ namespace ferreirosDeYork
         public string nomePartidaSelecionada { get; set; }
         public string senhaPartidaSelecionada { get; set; }
         public string nomeJogadorSelecionado { get; set; }
+        public string resultadoEntrarPartidaSelecionada { get; set; }
 
 
         public TelaLobby(TelaInicial menu)
@@ -53,6 +54,12 @@ namespace ferreirosDeYork
             lblNomePartida.Text = nomePartidaSelecionada;
             lblSenhaPartida.Text = senhaPartidaSelecionada;
             lblNomeJogadorPartida.Text = nomeJogadorSelecionado;
+
+            string[] dadosJogador = resultadoEntrarPartidaSelecionada.Split(',');
+
+            lblIdJogadorIdPartida.Text = dadosJogador[0];
+            lblSenhaJogadorPartida.Text = dadosJogador[1];
+
             ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
         }
 

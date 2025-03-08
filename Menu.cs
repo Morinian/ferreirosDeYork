@@ -14,10 +14,13 @@ namespace ferreirosDeYork
     public partial class TelaInicial: Form
     {
         private string nomeGrupo = "Ferreiros de York";
+
+        //Valores que vou passar para o lobby
         private string idPartidaSelecionada;
         private string nomePartidaSelecionada;
         private string senhaPartidaSelecionada;
         private string nomeJogadorSelecionado;
+        private string resultadoEntrarPartidaSelecionada;
         public TelaInicial()
         {
             InitializeComponent();
@@ -120,6 +123,9 @@ namespace ferreirosDeYork
                 lobby.nomePartidaSelecionada = lblNomePartida.Text;
                 lobby.nomeJogadorSelecionado = txtNomeJogador.Text;
                 lobby.senhaPartidaSelecionada = txtSenhaEntrarPartida.Text;
+                lobby.resultadoEntrarPartidaSelecionada = resultadoEntrar;
+
+                //chamando função que vai atualizar os valores na tela
                 lobby.AtualizarTela();
                 lobby.ShowDialog(); //iniciar lobby
             }

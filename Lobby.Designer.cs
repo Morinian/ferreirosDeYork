@@ -43,6 +43,8 @@
             this.lblNomeJogadorPartida = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblIdJogadorIdPartida = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblSenhaJogadorPartida = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblJogadoresNaPartida
@@ -215,6 +217,27 @@
             this.lblIdJogadorIdPartida.Size = new System.Drawing.Size(0, 27);
             this.lblIdJogadorIdPartida.TabIndex = 34;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(261, 205);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 16);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Jogador Senha";
+            // 
+            // lblSenhaJogadorPartida
+            // 
+            this.lblSenhaJogadorPartida.AutoSize = true;
+            this.lblSenhaJogadorPartida.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenhaJogadorPartida.ForeColor = System.Drawing.Color.Black;
+            this.lblSenhaJogadorPartida.Location = new System.Drawing.Point(260, 231);
+            this.lblSenhaJogadorPartida.Name = "lblSenhaJogadorPartida";
+            this.lblSenhaJogadorPartida.Size = new System.Drawing.Size(0, 27);
+            this.lblSenhaJogadorPartida.TabIndex = 36;
+            // 
             // TelaLobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +245,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(479, 566);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblSenhaJogadorPartida);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblIdJogadorIdPartida);
             this.Controls.Add(this.label4);
@@ -262,5 +287,7 @@
         private System.Windows.Forms.Label lblNomeJogadorPartida;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblIdJogadorIdPartida;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblSenhaJogadorPartida;
     }
 }
