@@ -52,7 +52,7 @@ namespace ferreirosDeYork
             }
         }
 
-        public void AtualizarTela()
+        public void AtualizarTelaLobby()
         {
             //Atribuindo os valores do menu para o lobby
             lblPartidaId.Text = idPartidaSelecionada;
@@ -82,6 +82,65 @@ namespace ferreirosDeYork
         }
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
+            Tabuleiro tabuleiro = new Tabuleiro();
+
+            // Pegando o valor das partidas
+            string estadoPartida = "";
+            string retornoPartida = Jogo.ListarPartidas("T");
+
+            // Tratando o retorno das partidas
+            retornoPartida = retornoPartida.Replace("\r", "");
+            string[] listaPartida = retornoPartida.Split('\n'); // separando os itens da lista pelo \n
+
+            // pegando apenas o estado da partida
+            for (int i = 0; i < listaPartida.Length - 1; i++)
+            {
+                string[] dadosPartida = listaPartida[i].Split(',');
+
+                if (dadosPartida[0] == idPartidaSelecionada)
+                {
+                    estadoPartida = dadosPartida[3]; // Pegando o estado da partida
+                }
+            }
+
+            //Verificando se ja foi iniciado o jogo
+            // se igual A então inicie 
+            // se igual a J então entre 
+            if (estadoPartida == "A")
+            {
+                string resultatoJogoInciar = Jogo.Iniciar(Convert.ToInt32(lblIdJogadorIdPartida.Text), lblSenhaJogadorPartida.Text);
+
+                if (resultatoJogoInciar.StartsWith("ERRO"))
+                {
+                    MessageBox.Show("❗ Ocorreu um erro. Por favor, tente novamente. ❗", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    //Valores para o tabuleiro
+                    tabuleiro.nomeJogadorSelecionado = this.nomeJogadorSelecionado;
+                    tabuleiro.idJogadorSelecionado = lblIdJogadorIdPartida.Text;
+                    tabuleiro.senhaJogadorSelecionado = lblSenhaJogadorPartida.Text;
+
+                    //chamando função que vai atualizar os valores na tela
+                    tabuleiro.AtualizarTelaTabuleiro();
+
+                    tabuleiro.Show(); //iniciar lobby
+                    this.Close();
+                }
+            }
+            else if (estadoPartida == "J")
+            {
+                //Valores para o tabuleiro
+                tabuleiro.nomeJogadorSelecionado = this.nomeJogadorSelecionado;
+                tabuleiro.idJogadorSelecionado = lblIdJogadorIdPartida.Text;
+                tabuleiro.senhaJogadorSelecionado = lblSenhaJogadorPartida.Text;
+
+                //chamando função que vai atualizar os valores na tela
+                tabuleiro.AtualizarTelaTabuleiro();
+
+                tabuleiro.Show(); //iniciar lobby
+                this.Close();
+            }
 
         }
         private void lstJogadores_SelectedIndexChanged(object sender, EventArgs e)

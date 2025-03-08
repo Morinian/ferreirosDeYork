@@ -111,7 +111,7 @@ namespace ferreirosDeYork
 
             if (resultadoEntrar.StartsWith("ERRO"))
             {
-                MessageBox.Show("🔥 Algo deu errado 🔥", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("❗ Ocorreu um erro. Por favor, tente novamente. ❗", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -126,7 +126,7 @@ namespace ferreirosDeYork
                 lobby.resultadoEntrarPartidaSelecionada = resultadoEntrar;
 
                 //chamando função que vai atualizar os valores na tela
-                lobby.AtualizarTela();
+                lobby.AtualizarTelaLobby();
                 lobby.ShowDialog(); //iniciar lobby
             }
 
