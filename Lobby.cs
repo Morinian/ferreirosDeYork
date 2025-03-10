@@ -112,7 +112,7 @@ namespace ferreirosDeYork
 
                 if (resultatoJogoInciar.StartsWith("ERRO"))
                 {
-                    MessageBox.Show("❗ Ocorreu um erro. Por favor, tente novamente. ❗", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("❗"+ resultatoJogoInciar + "❗", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {

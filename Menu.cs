@@ -111,7 +111,7 @@ namespace ferreirosDeYork
 
             if (resultadoEntrar.StartsWith("ERRO"))
             {
-                MessageBox.Show("❗ Ocorreu um erro. Por favor, tente novamente. ❗", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("❗" + resultadoEntrar + "❗", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
