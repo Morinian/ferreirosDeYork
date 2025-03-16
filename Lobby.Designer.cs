@@ -104,6 +104,7 @@
             this.label1.Size = new System.Drawing.Size(64, 16);
             this.label1.TabIndex = 17;
             this.label1.Text = "id partida:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblPartidaId
             // 
@@ -294,6 +295,7 @@
             this.Name = "TelaLobby";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lobby";
+            this.Load += new System.EventHandler(this.TelaLobby_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
