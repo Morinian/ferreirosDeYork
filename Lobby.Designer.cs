@@ -48,6 +48,7 @@
             this.lblSenhaJogadorPartida = new System.Windows.Forms.Label();
             this.lblNomeGrupo = new System.Windows.Forms.Label();
             this.lblVersaoJogo = new System.Windows.Forms.Label();
+            this.lblPARTIDA = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblJogadoresNaPartida
@@ -99,7 +100,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(50, 35);
+            this.label1.Location = new System.Drawing.Point(55, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 16);
             this.label1.TabIndex = 17;
@@ -183,7 +184,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(261, 35);
+            this.label4.Location = new System.Drawing.Point(238, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 16);
             this.label4.TabIndex = 33;
@@ -264,13 +265,26 @@
             this.lblVersaoJogo.TabIndex = 38;
             this.lblVersaoJogo.Text = "V.Jogo";
             // 
+            // lblPARTIDA
+            // 
+            this.lblPARTIDA.AutoSize = true;
+            this.lblPARTIDA.BackColor = System.Drawing.Color.Transparent;
+            this.lblPARTIDA.ForeColor = System.Drawing.Color.White;
+            this.lblPARTIDA.Location = new System.Drawing.Point(109, 39);
+            this.lblPARTIDA.Name = "lblPARTIDA";
+            this.lblPARTIDA.Size = new System.Drawing.Size(54, 13);
+            this.lblPARTIDA.TabIndex = 40;
+            this.lblPARTIDA.Text = "PARTIDA";
+            // 
             // TelaLobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(479, 581);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1017, 534);
+            this.Controls.Add(this.lblPARTIDA);
             this.Controls.Add(this.lblNomeGrupo);
             this.Controls.Add(this.lblVersaoJogo);
             this.Controls.Add(this.label6);
@@ -294,6 +308,7 @@
             this.Name = "TelaLobby";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lobby";
+            this.Load += new System.EventHandler(this.TelaLobby_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,5 +335,6 @@
         private System.Windows.Forms.Label lblSenhaJogadorPartida;
         private System.Windows.Forms.Label lblNomeGrupo;
         private System.Windows.Forms.Label lblVersaoJogo;
+        private System.Windows.Forms.Label lblPARTIDA;
     }
 }

@@ -149,5 +149,10 @@ namespace ferreirosDeYork
         {
 
         }
+
+        private void TelaLobby_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
