@@ -120,6 +120,7 @@ namespace ferreirosDeYork
                     tabuleiro.nomeJogadorSelecionado = this.nomeJogadorSelecionado;
                     tabuleiro.idJogadorSelecionado = lblIdJogadorIdPartida.Text;
                     tabuleiro.senhaJogadorSelecionado = lblSenhaJogadorPartida.Text;
+                    tabuleiro.idPartidaSelecionada = lblPartidaId.Text;
 
                     //chamando função que vai atualizar os valores na tela
                     tabuleiro.AtualizarTelaTabuleiro();
@@ -134,6 +135,7 @@ namespace ferreirosDeYork
                 tabuleiro.nomeJogadorSelecionado = this.nomeJogadorSelecionado;
                 tabuleiro.idJogadorSelecionado = lblIdJogadorIdPartida.Text;
                 tabuleiro.senhaJogadorSelecionado = lblSenhaJogadorPartida.Text;
+                tabuleiro.idPartidaSelecionada = lblPartidaId.Text;
 
                 //chamando função que vai atualizar os valores na tela
                 tabuleiro.AtualizarTelaTabuleiro();

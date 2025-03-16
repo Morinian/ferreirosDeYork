@@ -17,6 +17,7 @@ namespace ferreirosDeYork
         public string nomeJogadorSelecionado { get; set; }
         public string idJogadorSelecionado { get; set; }
         public string senhaJogadorSelecionado { get; set; }
+        public string idPartidaSelecionada { get; set; }
 
         private string[] listaCartas = new string[]
         {
@@ -68,7 +69,47 @@ namespace ferreirosDeYork
             lblCartaFavorita.Text = string.Join(Environment.NewLine, cartasNaMao);
 
         }
+        private void btnVezJogador_Click(object sender, EventArgs e)
+        {
+            string resultadoVerificaVez = Jogo.VerificarVez(Convert.ToInt32(idPartidaSelecionada));
 
+            //Resultado escrito mas ignorando a primeira linha ou sej deixando só o historico de jogadas
+            string[] linhas = resultadoVerificaVez.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            lblVezJogador.Text = string.Join("\n", linhas.Skip(1));
+
+            lblJogadorIdVez.Text = resultadoVerificaVez.Split(',')[0];
+
+            //---JOGADORES---
+            string retornoJogador = Jogo.ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
+
+            //Tratando o retorno das partidas
+            retornoJogador = retornoJogador.Replace("\r", "");
+            string[] listaJogadores = retornoJogador.Split('\n'); // separando os itens da lista pelo \n
+
+            //conferindo os jogadores 
+            for (int i = 0; i < listaJogadores.Length - 1; i++)
+            {
+               if(lblJogadorIdVez.Text == listaJogadores[i].Split(',')[0])
+                {
+                    lblJogadorNomeVez.Text = listaJogadores[i].Split(',')[1];
+                }
+            }
+        }
+        private void btnColocarPersonagem_Click(object sender, EventArgs e)
+        {
+            string personagemEscolhido = cmbPersonagem.Text.Substring(0,1); //Pegando o resultado do ComboBox primeira letra
+            int setorEscolhido = int.Parse(cmbSetor.Text.Split(',')[0]); //Pegando o resultado do ComboBox pegando só o numero
+            string resulatdoColocarPersonagem = Jogo.ColocarPersonagem(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado,Convert.ToInt32(setorEscolhido), personagemEscolhido);
+
+            //Tratando ERRO
+            if (resulatdoColocarPersonagem.StartsWith("ERRO"))
+                MessageBox.Show(resulatdoColocarPersonagem, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                cmbPersonagem.Text = "";
+                cmbSetor.Text = "";
+            }
+        }
         private void Tabuleiro_Load(object sender, EventArgs e)
         {
 
