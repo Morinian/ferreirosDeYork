@@ -50,28 +50,34 @@
             this.lblPARTIDA = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblJogadoresNaPartida
             // 
             this.lblJogadoresNaPartida.AutoSize = true;
-            this.lblJogadoresNaPartida.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJogadoresNaPartida.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblJogadoresNaPartida.Location = new System.Drawing.Point(760, 108);
+            this.lblJogadoresNaPartida.BackColor = System.Drawing.Color.Transparent;
+            this.lblJogadoresNaPartida.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogadoresNaPartida.ForeColor = System.Drawing.Color.White;
+            this.lblJogadoresNaPartida.Location = new System.Drawing.Point(675, 49);
             this.lblJogadoresNaPartida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblJogadoresNaPartida.Name = "lblJogadoresNaPartida";
-            this.lblJogadoresNaPartida.Size = new System.Drawing.Size(139, 14);
+            this.lblJogadoresNaPartida.Size = new System.Drawing.Size(290, 30);
             this.lblJogadoresNaPartida.TabIndex = 15;
             this.lblJogadoresNaPartida.Text = "JOGADORES NA PARTIDA";
             // 
             // lstJogadores
             // 
-            this.lstJogadores.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstJogadores.BackColor = System.Drawing.SystemColors.InfoText;
+            this.lstJogadores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstJogadores.Font = new System.Drawing.Font("LCD5x8H", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstJogadores.ForeColor = System.Drawing.Color.White;
             this.lstJogadores.FormattingEnabled = true;
-            this.lstJogadores.ItemHeight = 27;
-            this.lstJogadores.Location = new System.Drawing.Point(561, 146);
+            this.lstJogadores.ItemHeight = 12;
+            this.lstJogadores.Location = new System.Drawing.Point(83, 81);
             this.lstJogadores.Name = "lstJogadores";
-            this.lstJogadores.Size = new System.Drawing.Size(380, 112);
+            this.lstJogadores.Size = new System.Drawing.Size(158, 170);
             this.lstJogadores.TabIndex = 14;
             this.lstJogadores.SelectedIndexChanged += new System.EventHandler(this.lstJogadores_SelectedIndexChanged);
             // 
@@ -126,38 +132,43 @@
             // 
             // btnIniciarPartida
             // 
-            this.btnIniciarPartida.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnIniciarPartida.BackColor = System.Drawing.Color.Transparent;
+            this.btnIniciarPartida.FlatAppearance.BorderSize = 0;
+            this.btnIniciarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciarPartida.ForeColor = System.Drawing.Color.Black;
-            this.btnIniciarPartida.Location = new System.Drawing.Point(736, 444);
+            this.btnIniciarPartida.ForeColor = System.Drawing.Color.Transparent;
+            this.btnIniciarPartida.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciarPartida.Image")));
+            this.btnIniciarPartida.Location = new System.Drawing.Point(450, 379);
             this.btnIniciarPartida.Margin = new System.Windows.Forms.Padding(2);
             this.btnIniciarPartida.Name = "btnIniciarPartida";
-            this.btnIniciarPartida.Size = new System.Drawing.Size(163, 58);
+            this.btnIniciarPartida.Size = new System.Drawing.Size(146, 133);
             this.btnIniciarPartida.TabIndex = 27;
-            this.btnIniciarPartida.Text = "Iniciar Partida";
             this.btnIniciarPartida.UseVisualStyleBackColor = false;
             this.btnIniciarPartida.Click += new System.EventHandler(this.btnIniciarPartida_Click);
             // 
             // btnVoltarLobby
             // 
-            this.btnVoltarLobby.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnVoltarLobby.BackColor = System.Drawing.Color.Transparent;
+            this.btnVoltarLobby.FlatAppearance.BorderSize = 0;
+            this.btnVoltarLobby.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltarLobby.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltarLobby.ForeColor = System.Drawing.Color.Black;
-            this.btnVoltarLobby.Location = new System.Drawing.Point(63, 427);
+            this.btnVoltarLobby.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltarLobby.Image")));
+            this.btnVoltarLobby.Location = new System.Drawing.Point(202, 410);
             this.btnVoltarLobby.Margin = new System.Windows.Forms.Padding(2);
             this.btnVoltarLobby.Name = "btnVoltarLobby";
-            this.btnVoltarLobby.Size = new System.Drawing.Size(169, 58);
+            this.btnVoltarLobby.Size = new System.Drawing.Size(81, 70);
             this.btnVoltarLobby.TabIndex = 28;
-            this.btnVoltarLobby.Text = "SLA";
             this.btnVoltarLobby.UseVisualStyleBackColor = false;
             this.btnVoltarLobby.Click += new System.EventHandler(this.btnVoltarLobby_Click);
             // 
             // btnAtualizarJogadores
             // 
-            this.btnAtualizarJogadores.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAtualizarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtualizarJogadores.ForeColor = System.Drawing.Color.Black;
-            this.btnAtualizarJogadores.Location = new System.Drawing.Point(881, 158);
+            this.btnAtualizarJogadores.BackColor = System.Drawing.Color.Black;
+            this.btnAtualizarJogadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizarJogadores.Font = new System.Drawing.Font("LCD5x8H", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtualizarJogadores.ForeColor = System.Drawing.Color.White;
+            this.btnAtualizarJogadores.Location = new System.Drawing.Point(143, 256);
             this.btnAtualizarJogadores.Margin = new System.Windows.Forms.Padding(2);
             this.btnAtualizarJogadores.Name = "btnAtualizarJogadores";
             this.btnAtualizarJogadores.Size = new System.Drawing.Size(44, 38);
@@ -232,7 +243,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(57, 369);
+            this.label6.Location = new System.Drawing.Point(57, 363);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(109, 33);
             this.label6.TabIndex = 37;
@@ -240,14 +251,15 @@
             // 
             // lblSenhaJogadorPartida
             // 
-            this.lblSenhaJogadorPartida.AutoSize = true;
-            this.lblSenhaJogadorPartida.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenhaJogadorPartida.ForeColor = System.Drawing.Color.Black;
-            this.lblSenhaJogadorPartida.Location = new System.Drawing.Point(161, 375);
+            this.lblSenhaJogadorPartida.BackColor = System.Drawing.Color.Transparent;
+            this.lblSenhaJogadorPartida.Font = new System.Drawing.Font("LCD5x8H", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenhaJogadorPartida.ForeColor = System.Drawing.Color.BlanchedAlmond;
+            this.lblSenhaJogadorPartida.Image = ((System.Drawing.Image)(resources.GetObject("lblSenhaJogadorPartida.Image")));
+            this.lblSenhaJogadorPartida.Location = new System.Drawing.Point(153, 369);
             this.lblSenhaJogadorPartida.Name = "lblSenhaJogadorPartida";
-            this.lblSenhaJogadorPartida.Size = new System.Drawing.Size(56, 27);
+            this.lblSenhaJogadorPartida.Size = new System.Drawing.Size(245, 27);
             this.lblSenhaJogadorPartida.TabIndex = 36;
-            this.lblSenhaJogadorPartida.Text = "SLA";
+            this.lblSenhaJogadorPartida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblNomeGrupo
             // 
@@ -310,6 +322,18 @@
             this.label4.TabIndex = 42;
             this.label4.Text = "NOME:";
             // 
+            // panel1
+            // 
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.lstJogadores);
+            this.panel1.Controls.Add(this.btnAtualizarJogadores);
+            this.panel1.Location = new System.Drawing.Point(652, 82);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(330, 348);
+            this.panel1.TabIndex = 43;
+            // 
             // TelaLobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,6 +342,7 @@
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1017, 534);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblPartidaId);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
@@ -331,19 +356,19 @@
             this.Controls.Add(this.lblNomeJogadorPartida);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblSenhaPartida);
-            this.Controls.Add(this.btnAtualizarJogadores);
             this.Controls.Add(this.btnVoltarLobby);
             this.Controls.Add(this.btnIniciarPartida);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblNomePartida);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblJogadoresNaPartida);
-            this.Controls.Add(this.lstJogadores);
+            this.ForeColor = System.Drawing.Color.Transparent;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaLobby";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lobby";
             this.Load += new System.EventHandler(this.TelaLobby_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,5 +397,6 @@
         private System.Windows.Forms.Label lblPARTIDA;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
     }
 }
