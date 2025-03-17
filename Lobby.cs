@@ -31,6 +31,8 @@ namespace ferreirosDeYork
 
             lblNomeGrupo.Text = nomeGrupo;
             lblVersaoJogo.Text = ("V." + Jogo.versao);
+
+
         }
 
         public void ListarJogadores(int idPartida)
@@ -151,6 +153,36 @@ namespace ferreirosDeYork
         }
 
         private void TelaLobby_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPARTIDA_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPartidaId_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
