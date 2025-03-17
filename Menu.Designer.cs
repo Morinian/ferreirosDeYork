@@ -87,7 +87,7 @@
             this.btnListarPartida.Location = new System.Drawing.Point(349, 438);
             this.btnListarPartida.Margin = new System.Windows.Forms.Padding(0);
             this.btnListarPartida.Name = "btnListarPartida";
-            this.btnListarPartida.Size = new System.Drawing.Size(150, 75);
+            this.btnListarPartida.Size = new System.Drawing.Size(166, 75);
             this.btnListarPartida.TabIndex = 0;
             this.btnListarPartida.Text = "Listar Partida";
             this.btnListarPartida.UseVisualStyleBackColor = false;
@@ -98,12 +98,12 @@
             this.lstPartidas.BackColor = System.Drawing.Color.Black;
             this.lstPartidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstPartidas.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstPartidas.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lstPartidas.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lstPartidas.FormattingEnabled = true;
             this.lstPartidas.ItemHeight = 15;
-            this.lstPartidas.Location = new System.Drawing.Point(69, 77);
+            this.lstPartidas.Location = new System.Drawing.Point(83, 77);
             this.lstPartidas.Name = "lstPartidas";
-            this.lstPartidas.Size = new System.Drawing.Size(139, 225);
+            this.lstPartidas.Size = new System.Drawing.Size(164, 225);
             this.lstPartidas.TabIndex = 1;
             this.lstPartidas.SelectedIndexChanged += new System.EventHandler(this.lstPartidas_SelectedIndexChanged);
             // 
@@ -112,7 +112,7 @@
             this.lstJogadores.BackColor = System.Drawing.Color.Black;
             this.lstJogadores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstJogadores.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstJogadores.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lstJogadores.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lstJogadores.FormattingEnabled = true;
             this.lstJogadores.ItemHeight = 15;
             this.lstJogadores.Location = new System.Drawing.Point(68, 77);
@@ -124,12 +124,12 @@
             // lblPartidaId
             // 
             this.lblPartidaId.AutoSize = true;
-            this.lblPartidaId.BackColor = System.Drawing.Color.Transparent;
-            this.lblPartidaId.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartidaId.ForeColor = System.Drawing.Color.Black;
-            this.lblPartidaId.Location = new System.Drawing.Point(344, 224);
+            this.lblPartidaId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(54)))), ((int)(((byte)(30)))));
+            this.lblPartidaId.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPartidaId.ForeColor = System.Drawing.Color.White;
+            this.lblPartidaId.Location = new System.Drawing.Point(356, 207);
             this.lblPartidaId.Name = "lblPartidaId";
-            this.lblPartidaId.Size = new System.Drawing.Size(0, 27);
+            this.lblPartidaId.Size = new System.Drawing.Size(0, 29);
             this.lblPartidaId.TabIndex = 4;
             // 
             // label1
@@ -138,7 +138,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(318, 176);
+            this.label1.Location = new System.Drawing.Point(340, 176);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 20);
             this.label1.TabIndex = 5;
@@ -150,7 +150,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(318, 262);
+            this.label2.Location = new System.Drawing.Point(340, 262);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 7;
@@ -159,12 +159,12 @@
             // lblNomePartida
             // 
             this.lblNomePartida.AutoSize = true;
-            this.lblNomePartida.BackColor = System.Drawing.Color.Transparent;
-            this.lblNomePartida.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomePartida.ForeColor = System.Drawing.Color.Black;
-            this.lblNomePartida.Location = new System.Drawing.Point(344, 310);
+            this.lblNomePartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(54)))), ((int)(((byte)(30)))));
+            this.lblNomePartida.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomePartida.ForeColor = System.Drawing.Color.White;
+            this.lblNomePartida.Location = new System.Drawing.Point(356, 293);
             this.lblNomePartida.Name = "lblNomePartida";
-            this.lblNomePartida.Size = new System.Drawing.Size(0, 27);
+            this.lblNomePartida.Size = new System.Drawing.Size(0, 29);
             this.lblNomePartida.TabIndex = 6;
             this.lblNomePartida.Click += new System.EventHandler(this.lblNomePartida_Click);
             // 
@@ -174,7 +174,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(318, 349);
+            this.label4.Location = new System.Drawing.Point(340, 349);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 20);
             this.label4.TabIndex = 9;
@@ -183,12 +183,12 @@
             // lblDataPartida
             // 
             this.lblDataPartida.AutoSize = true;
-            this.lblDataPartida.BackColor = System.Drawing.Color.Transparent;
-            this.lblDataPartida.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataPartida.ForeColor = System.Drawing.Color.Black;
-            this.lblDataPartida.Location = new System.Drawing.Point(344, 397);
+            this.lblDataPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(54)))), ((int)(((byte)(30)))));
+            this.lblDataPartida.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataPartida.ForeColor = System.Drawing.Color.White;
+            this.lblDataPartida.Location = new System.Drawing.Point(356, 380);
             this.lblDataPartida.Name = "lblDataPartida";
-            this.lblDataPartida.Size = new System.Drawing.Size(0, 27);
+            this.lblDataPartida.Size = new System.Drawing.Size(0, 29);
             this.lblDataPartida.TabIndex = 8;
             // 
             // lblVersaoJogo
@@ -224,7 +224,7 @@
             this.lblJogadoresNaPartida.BackColor = System.Drawing.Color.Transparent;
             this.lblJogadoresNaPartida.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJogadoresNaPartida.ForeColor = System.Drawing.Color.White;
-            this.lblJogadoresNaPartida.Location = new System.Drawing.Point(553, 128);
+            this.lblJogadoresNaPartida.Location = new System.Drawing.Point(559, 128);
             this.lblJogadoresNaPartida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblJogadoresNaPartida.Name = "lblJogadoresNaPartida";
             this.lblJogadoresNaPartida.Size = new System.Drawing.Size(219, 20);
@@ -236,7 +236,7 @@
             // 
             this.txtNomeCriarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(98)))), ((int)(((byte)(92)))));
             this.txtNomeCriarPartida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNomeCriarPartida.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeCriarPartida.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeCriarPartida.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtNomeCriarPartida.Location = new System.Drawing.Point(34, 15);
             this.txtNomeCriarPartida.Margin = new System.Windows.Forms.Padding(2);
@@ -276,7 +276,7 @@
             // 
             this.txtSenhaCriarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(98)))), ((int)(((byte)(92)))));
             this.txtSenhaCriarPartida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSenhaCriarPartida.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaCriarPartida.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenhaCriarPartida.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtSenhaCriarPartida.Location = new System.Drawing.Point(34, 15);
             this.txtSenhaCriarPartida.Margin = new System.Windows.Forms.Padding(2);
@@ -366,7 +366,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(824, 206);
+            this.label6.Location = new System.Drawing.Point(849, 202);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 14);
@@ -377,7 +377,7 @@
             // 
             this.txtNomeJogador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(98)))), ((int)(((byte)(92)))));
             this.txtNomeJogador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNomeJogador.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeJogador.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeJogador.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtNomeJogador.Location = new System.Drawing.Point(25, 11);
             this.txtNomeJogador.Margin = new System.Windows.Forms.Padding(2);
@@ -393,7 +393,7 @@
             this.btnEntrarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEntrarPartida.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrarPartida.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEntrarPartida.Location = new System.Drawing.Point(827, 349);
+            this.btnEntrarPartida.Location = new System.Drawing.Point(852, 345);
             this.btnEntrarPartida.Margin = new System.Windows.Forms.Padding(2);
             this.btnEntrarPartida.Name = "btnEntrarPartida";
             this.btnEntrarPartida.Size = new System.Drawing.Size(150, 75);
@@ -409,7 +409,7 @@
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSair.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSair.Location = new System.Drawing.Point(828, 438);
+            this.btnSair.Location = new System.Drawing.Point(853, 434);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(150, 75);
             this.btnSair.TabIndex = 27;
@@ -423,7 +423,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(825, 278);
+            this.label8.Location = new System.Drawing.Point(850, 274);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 14);
@@ -434,7 +434,7 @@
             // 
             this.txtSenhaEntrarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(98)))), ((int)(((byte)(92)))));
             this.txtSenhaEntrarPartida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSenhaEntrarPartida.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaEntrarPartida.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenhaEntrarPartida.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtSenhaEntrarPartida.Location = new System.Drawing.Point(24, 11);
             this.txtSenhaEntrarPartida.Margin = new System.Windows.Forms.Padding(2);
@@ -487,7 +487,7 @@
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel4.Controls.Add(this.txtNomeJogador);
-            this.panel4.Location = new System.Drawing.Point(806, 211);
+            this.panel4.Location = new System.Drawing.Point(831, 207);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(190, 45);
             this.panel4.TabIndex = 32;
@@ -499,7 +499,7 @@
             this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel5.Controls.Add(this.txtSenhaEntrarPartida);
-            this.panel5.Location = new System.Drawing.Point(806, 285);
+            this.panel5.Location = new System.Drawing.Point(831, 281);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(190, 45);
             this.panel5.TabIndex = 33;
@@ -511,9 +511,9 @@
             this.panel6.BackgroundImage = global::ferreirosDeYork.Properties.Resources.selectionDemo;
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel6.Controls.Add(this.lstPartidas);
-            this.panel6.Location = new System.Drawing.Point(40, 151);
+            this.panel6.Location = new System.Drawing.Point(12, 151);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(272, 362);
+            this.panel6.Size = new System.Drawing.Size(322, 362);
             this.panel6.TabIndex = 31;
             // 
             // panel7
@@ -523,7 +523,7 @@
             this.panel7.BackgroundImage = global::ferreirosDeYork.Properties.Resources.selectionDemo1;
             this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel7.Controls.Add(this.lstJogadores);
-            this.panel7.Location = new System.Drawing.Point(538, 151);
+            this.panel7.Location = new System.Drawing.Point(557, 151);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(272, 362);
             this.panel7.TabIndex = 32;
@@ -535,7 +535,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1017, 534);
+            this.ClientSize = new System.Drawing.Size(1033, 534);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.lblJogadoresNaPartida);
             this.Controls.Add(this.panel6);
