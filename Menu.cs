@@ -186,5 +186,11 @@ namespace ferreirosDeYork
         {
 
         }
+
+        private void txtNomeGrupoCriarPartida_TextChanged(object sender, EventArgs e)
+        {
+            txtNomeGrupoCriarPartida.ForeColor = Color.Red;
+
+        }
     }
 }

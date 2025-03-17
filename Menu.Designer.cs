@@ -95,29 +95,29 @@
             // 
             // lstPartidas
             // 
-            this.lstPartidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lstPartidas.BackColor = System.Drawing.Color.Black;
             this.lstPartidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstPartidas.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstPartidas.ForeColor = System.Drawing.Color.Gainsboro;
             this.lstPartidas.FormattingEnabled = true;
             this.lstPartidas.ItemHeight = 15;
-            this.lstPartidas.Location = new System.Drawing.Point(36, 60);
+            this.lstPartidas.Location = new System.Drawing.Point(69, 77);
             this.lstPartidas.Name = "lstPartidas";
-            this.lstPartidas.Size = new System.Drawing.Size(201, 240);
+            this.lstPartidas.Size = new System.Drawing.Size(139, 225);
             this.lstPartidas.TabIndex = 1;
             this.lstPartidas.SelectedIndexChanged += new System.EventHandler(this.lstPartidas_SelectedIndexChanged);
             // 
             // lstJogadores
             // 
-            this.lstJogadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lstJogadores.BackColor = System.Drawing.Color.Black;
             this.lstJogadores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstJogadores.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstJogadores.ForeColor = System.Drawing.Color.Gainsboro;
             this.lstJogadores.FormattingEnabled = true;
             this.lstJogadores.ItemHeight = 15;
-            this.lstJogadores.Location = new System.Drawing.Point(35, 60);
+            this.lstJogadores.Location = new System.Drawing.Point(68, 77);
             this.lstJogadores.Name = "lstJogadores";
-            this.lstJogadores.Size = new System.Drawing.Size(201, 240);
+            this.lstJogadores.Size = new System.Drawing.Size(139, 225);
             this.lstJogadores.TabIndex = 3;
             this.lstJogadores.SelectedIndexChanged += new System.EventHandler(this.lstJogadores_SelectedIndexChanged);
             // 
@@ -306,8 +306,8 @@
             this.txtNomeGrupoCriarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(98)))), ((int)(((byte)(92)))));
             this.txtNomeGrupoCriarPartida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNomeGrupoCriarPartida.Enabled = false;
-            this.txtNomeGrupoCriarPartida.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeGrupoCriarPartida.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtNomeGrupoCriarPartida.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeGrupoCriarPartida.ForeColor = System.Drawing.Color.Red;
             this.txtNomeGrupoCriarPartida.Location = new System.Drawing.Point(34, 15);
             this.txtNomeGrupoCriarPartida.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeGrupoCriarPartida.Multiline = true;
@@ -315,6 +315,7 @@
             this.txtNomeGrupoCriarPartida.ReadOnly = true;
             this.txtNomeGrupoCriarPartida.Size = new System.Drawing.Size(202, 40);
             this.txtNomeGrupoCriarPartida.TabIndex = 19;
+            this.txtNomeGrupoCriarPartida.TextChanged += new System.EventHandler(this.txtNomeGrupoCriarPartida_TextChanged);
             // 
             // label10
             // 
@@ -507,8 +508,8 @@
             // 
             this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.BackgroundImage = global::ferreirosDeYork.Properties.Resources.pergaminhoPixelado;
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel6.BackgroundImage = global::ferreirosDeYork.Properties.Resources.selectionDemo;
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel6.Controls.Add(this.lstPartidas);
             this.panel6.Location = new System.Drawing.Point(40, 151);
             this.panel6.Name = "panel6";
@@ -519,10 +520,10 @@
             // 
             this.panel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.BackgroundImage = global::ferreirosDeYork.Properties.Resources.pergaminhoPixelado;
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel7.BackgroundImage = global::ferreirosDeYork.Properties.Resources.selectionDemo1;
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel7.Controls.Add(this.lstJogadores);
-            this.panel7.Location = new System.Drawing.Point(536, 151);
+            this.panel7.Location = new System.Drawing.Point(538, 151);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(272, 362);
             this.panel7.TabIndex = 32;
