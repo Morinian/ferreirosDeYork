@@ -14,6 +14,7 @@ namespace ferreirosDeYork
     public partial class TelaInicial: Form
     {
         private string nomeGrupo = "Ferreiros de York";
+        private Image backgroundImage;
 
         //Valores que vou passar para o lobby
         private string idPartidaSelecionada;
@@ -27,8 +28,10 @@ namespace ferreirosDeYork
             txtNomeGrupoCriarPartida.Text = nomeGrupo;
             lblNomeGrupo.Text = nomeGrupo;
             lblVersaoJogo.Text = ("V."+Jogo.versao);
-        }
 
+  
+        }
+    
         private void btnListarPartida_Click(object sender, EventArgs e)
         {
             //Limpando list box
@@ -165,6 +168,21 @@ namespace ferreirosDeYork
         }
 
         private void lblNomePartida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblVersaoJogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNomeCriarPartida_TextChanged(object sender, EventArgs e)
         {
 
         }
