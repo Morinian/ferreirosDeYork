@@ -367,8 +367,6 @@
             this.Name = "TelaLobby";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lobby";
-            this.Load += new System.EventHandler(this.TelaLobby_Load);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
