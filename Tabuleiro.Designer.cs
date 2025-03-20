@@ -159,11 +159,11 @@
             // 
             this.lblVezJogador.AutoSize = true;
             this.lblVezJogador.BackColor = System.Drawing.Color.Transparent;
-            this.lblVezJogador.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblVezJogador.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVezJogador.ForeColor = System.Drawing.Color.White;
-            this.lblVezJogador.Location = new System.Drawing.Point(502, 20);
+            this.lblVezJogador.Location = new System.Drawing.Point(1054, 412);
             this.lblVezJogador.Name = "lblVezJogador";
-            this.lblVezJogador.Size = new System.Drawing.Size(0, 20);
+            this.lblVezJogador.Size = new System.Drawing.Size(0, 27);
             this.lblVezJogador.TabIndex = 46;
             // 
             // btnVezJogador
@@ -191,7 +191,7 @@
             this.btnColocarPersonagem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnColocarPersonagem.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.btnColocarPersonagem.ForeColor = System.Drawing.Color.White;
-            this.btnColocarPersonagem.Location = new System.Drawing.Point(67, 676);
+            this.btnColocarPersonagem.Location = new System.Drawing.Point(71, 653);
             this.btnColocarPersonagem.Name = "btnColocarPersonagem";
             this.btnColocarPersonagem.Size = new System.Drawing.Size(182, 92);
             this.btnColocarPersonagem.TabIndex = 49;
@@ -205,7 +205,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(64, 528);
+            this.label2.Location = new System.Drawing.Point(68, 505);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.TabIndex = 52;
@@ -218,7 +218,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(64, 605);
+            this.label3.Location = new System.Drawing.Point(68, 582);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 53;
@@ -319,9 +319,9 @@
             // panel2
             // 
             this.panel2.BackgroundImage = global::ferreirosDeYork.Properties.Resources.TABULEIRO;
-            this.panel2.Location = new System.Drawing.Point(739, -1);
+            this.panel2.Location = new System.Drawing.Point(372, -6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(496, 800);
+            this.panel2.Size = new System.Drawing.Size(500, 804);
             this.panel2.TabIndex = 62;
             // 
             // cmbPersonagem
@@ -355,7 +355,7 @@
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel4.Controls.Add(this.cmbPersonagem);
-            this.panel4.Location = new System.Drawing.Point(63, 548);
+            this.panel4.Location = new System.Drawing.Point(67, 525);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(190, 45);
             this.panel4.TabIndex = 63;
@@ -367,7 +367,7 @@
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel3.Controls.Add(this.cmbSetor);
-            this.panel3.Location = new System.Drawing.Point(63, 625);
+            this.panel3.Location = new System.Drawing.Point(67, 602);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(190, 45);
             this.panel3.TabIndex = 64;
@@ -377,7 +377,7 @@
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.BackgroundImage = global::ferreirosDeYork.Properties.Resources.CAVEIRA;
             this.panel5.Controls.Add(this.panel1);
-            this.panel5.Location = new System.Drawing.Point(412, 423);
+            this.panel5.Location = new System.Drawing.Point(890, 12);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(321, 345);
             this.panel5.TabIndex = 65;
@@ -389,7 +389,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Chocolate;
             this.BackgroundImage = global::ferreirosDeYork.Properties.Resources.LIMBO;
-            this.ClientSize = new System.Drawing.Size(1234, 780);
+            this.ClientSize = new System.Drawing.Size(1234, 794);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
