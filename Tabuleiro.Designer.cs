@@ -161,7 +161,7 @@
             this.lblVezJogador.BackColor = System.Drawing.Color.Transparent;
             this.lblVezJogador.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVezJogador.ForeColor = System.Drawing.Color.White;
-            this.lblVezJogador.Location = new System.Drawing.Point(1054, 412);
+            this.lblVezJogador.Location = new System.Drawing.Point(1038, 398);
             this.lblVezJogador.Name = "lblVezJogador";
             this.lblVezJogador.Size = new System.Drawing.Size(0, 27);
             this.lblVezJogador.TabIndex = 46;
