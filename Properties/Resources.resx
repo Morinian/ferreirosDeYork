@@ -139,11 +139,14 @@
   <data name="K_FP3Nobre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\K_FP3Nobre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="M_FP4Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\M_FP4Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Q_FP10Plebeu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\Q_FP10Plebeu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="E_FP7Plebeu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\E_FP7Plebeu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="G_FP1Rei" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\G_FP1Rei.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="K_FP3Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\K_FP3Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,14 +154,17 @@
   <data name="Listar Partidas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Listar Partidas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="D_FP2Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\D_FP2Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="L_FP9Nobre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\L_FP9Nobre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="D_FP2Rei" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\D_FP2Rei.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="R_FP6Nobre" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\R_FP6Nobre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pergaminhoPixelado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pergaminhoPixelado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="H_FP8Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\H_FP8Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="T_FP11Rei" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\T_FP11Rei.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -195,9 +201,6 @@
   </data>
   <data name="A_FP5Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\A_FP5Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="R_FP6Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\R_FP6Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="E_FP7Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\E_FP7Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,11 +247,14 @@
   <data name="T_FP11Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\T_FP11Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="B_FP12Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\B_FP12Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RPG_GUI_v1 71" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RPG_GUI_v1 71.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="R_FP6Rei" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\R_FP6Rei.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="D_FP2Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\D_FP2Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="L_FP9Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\L_FP9Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="D_FP2Artesao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\D_FP2Artesao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -258,9 +264,6 @@
   </data>
   <data name="T_FP11Dignatario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\T_FP11Dignatario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="C_FP13Artesao" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\C_FP13Artesao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="C_FP13Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\C_FP13Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -286,14 +289,17 @@
   <data name="L_FP9Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\L_FP9Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Q_FP10Plebeu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\Q_FP10Plebeu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="C_FP13Nobre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\C_FP13Nobre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="K_FP3Artesao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\K_FP3Artesao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="A_FP4Dignatario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\A_FP4Dignatario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="A_FP5Artesao" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\A_FP5Artesao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="E_FP7Artesao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\E_FP7Artesao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,14 +307,11 @@
   <data name="H_FP8Nobre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\H_FP8Nobre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="L_FP9Nobre" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\L_FP9Nobre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="E_FP7Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\E_FP7Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Q_FP10Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\Q_FP10Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="K_FP3Plebeu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\K_FP3Plebeu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="M_FP4Rei" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\M_FP4Rei.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,14 +328,14 @@
   <data name="H_FP8Nobre-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\H_FP8Nobre-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="L_FP9Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\L_FP9Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="R_FP6Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\R_FP6Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="R_FP6Artesao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\R_FP6Artesao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="A_FP4Dignatario" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\A_FP4Dignatario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="B_FP12Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\B_FP12Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="K_FP3Dignatario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\K_FP3Dignatario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -340,8 +343,8 @@
   <data name="D_FP2Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\D_FP2Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="H_FP8Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\H_FP8Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="M_FP4Mercador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\M_FP4Mercador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="G_FP1Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\G_FP1Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -349,8 +352,8 @@
   <data name="M_FP4Artesao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\M_FP4Artesao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="G_FP1Rei" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\G_FP1Rei.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="R_FP6Nobre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\R_FP6Nobre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="B_FP12Dignatario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\B_FP12Dignatario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -382,8 +385,8 @@
   <data name="B_FP12Plebeu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\B_FP12Plebeu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="E_FP7Oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\E_FP7Oficial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="C_FP13Artesao" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\C_FP13Artesao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="E_FP7Nobre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\E_FP7Nobre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -394,14 +397,14 @@
   <data name="Q_FP10Artesao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\Q_FP10Artesao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="A_FP5Artesao" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\todos_Personagens_PI\A_FP5Artesao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="K_FP3Plebeu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\K_FP3Plebeu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="D_FP2Plebeu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\D_FP2Plebeu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pergaminhoPixelado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pergaminhoPixelado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="R_FP6Rei" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\todos_Personagens_PI\R_FP6Rei.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="T_FP11Plebeu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\T_FP11Plebeu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -415,7 +418,7 @@
   <data name="G_FP1Nobre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\todos_Personagens_PI\G_FP1Nobre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RPG_GUI_v1 71" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RPG_GUI_v1 71.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Frame 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Frame 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
