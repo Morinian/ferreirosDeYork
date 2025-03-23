@@ -71,13 +71,13 @@
             // 
             this.lstJogadores.BackColor = System.Drawing.SystemColors.InfoText;
             this.lstJogadores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lstJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstJogadores.Font = new System.Drawing.Font("LCD5x8H", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstJogadores.ForeColor = System.Drawing.Color.White;
             this.lstJogadores.FormattingEnabled = true;
-            this.lstJogadores.ItemHeight = 16;
-            this.lstJogadores.Location = new System.Drawing.Point(83, 81);
+            this.lstJogadores.ItemHeight = 12;
+            this.lstJogadores.Location = new System.Drawing.Point(83, 93);
             this.lstJogadores.Name = "lstJogadores";
-            this.lstJogadores.Size = new System.Drawing.Size(158, 162);
+            this.lstJogadores.Size = new System.Drawing.Size(158, 146);
             this.lstJogadores.TabIndex = 14;
             this.lstJogadores.SelectedIndexChanged += new System.EventHandler(this.lstJogadores_SelectedIndexChanged);
             // 
@@ -96,7 +96,7 @@
             // lblNomePartida
             // 
             this.lblNomePartida.BackColor = System.Drawing.Color.Transparent;
-            this.lblNomePartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomePartida.Font = new System.Drawing.Font("LCD5x8H", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomePartida.ForeColor = System.Drawing.Color.White;
             this.lblNomePartida.Image = ((System.Drawing.Image)(resources.GetObject("lblNomePartida.Image")));
             this.lblNomePartida.Location = new System.Drawing.Point(153, 137);
@@ -120,7 +120,7 @@
             // lblPartidaId
             // 
             this.lblPartidaId.BackColor = System.Drawing.Color.Transparent;
-            this.lblPartidaId.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPartidaId.Font = new System.Drawing.Font("LCD5x8H", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPartidaId.ForeColor = System.Drawing.Color.White;
             this.lblPartidaId.Image = ((System.Drawing.Image)(resources.GetObject("lblPartidaId.Image")));
             this.lblPartidaId.Location = new System.Drawing.Point(150, 103);
@@ -138,7 +138,7 @@
             this.btnIniciarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarPartida.ForeColor = System.Drawing.Color.Transparent;
             this.btnIniciarPartida.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciarPartida.Image")));
-            this.btnIniciarPartida.Location = new System.Drawing.Point(450, 379);
+            this.btnIniciarPartida.Location = new System.Drawing.Point(443, 379);
             this.btnIniciarPartida.Margin = new System.Windows.Forms.Padding(2);
             this.btnIniciarPartida.Name = "btnIniciarPartida";
             this.btnIniciarPartida.Size = new System.Drawing.Size(146, 133);
@@ -154,10 +154,10 @@
             this.btnVoltarLobby.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltarLobby.ForeColor = System.Drawing.Color.Black;
             this.btnVoltarLobby.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltarLobby.Image")));
-            this.btnVoltarLobby.Location = new System.Drawing.Point(202, 410);
+            this.btnVoltarLobby.Location = new System.Drawing.Point(63, 406);
             this.btnVoltarLobby.Margin = new System.Windows.Forms.Padding(2);
             this.btnVoltarLobby.Name = "btnVoltarLobby";
-            this.btnVoltarLobby.Size = new System.Drawing.Size(81, 70);
+            this.btnVoltarLobby.Size = new System.Drawing.Size(81, 79);
             this.btnVoltarLobby.TabIndex = 28;
             this.btnVoltarLobby.UseVisualStyleBackColor = false;
             this.btnVoltarLobby.Click += new System.EventHandler(this.btnVoltarLobby_Click);
@@ -192,7 +192,7 @@
             // lblSenhaPartida
             // 
             this.lblSenhaPartida.BackColor = System.Drawing.Color.Transparent;
-            this.lblSenhaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenhaPartida.Font = new System.Drawing.Font("LCD5x8H", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSenhaPartida.ForeColor = System.Drawing.Color.White;
             this.lblSenhaPartida.Image = ((System.Drawing.Image)(resources.GetObject("lblSenhaPartida.Image")));
             this.lblSenhaPartida.Location = new System.Drawing.Point(153, 170);
@@ -204,7 +204,7 @@
             // lblNomeJogadorPartida
             // 
             this.lblNomeJogadorPartida.BackColor = System.Drawing.Color.Transparent;
-            this.lblNomeJogadorPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeJogadorPartida.Font = new System.Drawing.Font("LCD5x8H", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomeJogadorPartida.ForeColor = System.Drawing.Color.White;
             this.lblNomeJogadorPartida.Image = ((System.Drawing.Image)(resources.GetObject("lblNomeJogadorPartida.Image")));
             this.lblNomeJogadorPartida.Location = new System.Drawing.Point(156, 336);
@@ -228,7 +228,7 @@
             // lblIdJogadorIdPartida
             // 
             this.lblIdJogadorIdPartida.BackColor = System.Drawing.Color.Transparent;
-            this.lblIdJogadorIdPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdJogadorIdPartida.Font = new System.Drawing.Font("LCD5x8H", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdJogadorIdPartida.ForeColor = System.Drawing.Color.White;
             this.lblIdJogadorIdPartida.Image = ((System.Drawing.Image)(resources.GetObject("lblIdJogadorIdPartida.Image")));
             this.lblIdJogadorIdPartida.Location = new System.Drawing.Point(156, 303);
@@ -252,8 +252,8 @@
             // lblSenhaJogadorPartida
             // 
             this.lblSenhaJogadorPartida.BackColor = System.Drawing.Color.Transparent;
-            this.lblSenhaJogadorPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenhaJogadorPartida.ForeColor = System.Drawing.Color.BlanchedAlmond;
+            this.lblSenhaJogadorPartida.Font = new System.Drawing.Font("LCD5x8H", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenhaJogadorPartida.ForeColor = System.Drawing.Color.White;
             this.lblSenhaJogadorPartida.Image = ((System.Drawing.Image)(resources.GetObject("lblSenhaJogadorPartida.Image")));
             this.lblSenhaJogadorPartida.Location = new System.Drawing.Point(153, 369);
             this.lblSenhaJogadorPartida.Name = "lblSenhaJogadorPartida";
@@ -333,6 +333,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(330, 348);
             this.panel1.TabIndex = 43;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // TelaLobby
             // 
