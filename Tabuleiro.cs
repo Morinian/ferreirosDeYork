@@ -28,7 +28,7 @@ namespace ferreirosDeYork
                 "Eduardo Takeo",
                 "Guilherme Rey",
                 "Heredia",
-                "Karin",
+                "Kelly",
                 "Leonardo Takuno",
                 "Mario Toledo",
                 "Quintas",
@@ -42,25 +42,24 @@ namespace ferreirosDeYork
         {
             InitializeComponent();
             CarregarImagens();
-
         }
         private void CarregarImagens()
         {
-            imagemCartas = new Dictionary<string, Image>();
+            this.imagemCartas = new Dictionary<string, Image>();
 
-            imagemCartas["Adilson Konrad"] = Properties.Resources.A_FP5Plebeu;
-            imagemCartas["Beatriz Paiva"] = Properties.Resources.B_FP12Plebeu;
-            imagemCartas["Claro"] = Properties.Resources.C_FP13Plebeu;
-            imagemCartas["Douglas Baquiao"] = Properties.Resources.D_FP2Plebeu;
-            imagemCartas["Eduardo Takeo"] = Properties.Resources.E_FP7Plebeu;
-            imagemCartas["Guilherme Rey"] = Properties.Resources.G_FP1Plebeu;
-            imagemCartas["Heredia"] = Properties.Resources.H_FP8Plebeu;
-            imagemCartas["Karin"] = Properties.Resources.K_FP3Plebeu;
-            imagemCartas["Leonardo Takuno"] = Properties.Resources.L_FP9Plebeu;
-            imagemCartas["Mario Toledo"] = Properties.Resources.M_FP4Plebeu;
-            imagemCartas["Quintas"] = Properties.Resources.Q_FP10Plebeu;
-            imagemCartas["Ranulfo"] = Properties.Resources.R_FP6Plebeu;
-            imagemCartas["Toshio"] = Properties.Resources.T_FP11Plebeu;
+            this.imagemCartas["Adilson Konrad"] = Properties.Resources.A_FP5Plebeu;
+            this.imagemCartas["Beatriz Paiva"] = Properties.Resources.B_FP12Plebeu;
+            this.imagemCartas["Claro"] = Properties.Resources.C_FP13Plebeu;
+            this.imagemCartas["Douglas Baquiao"] = Properties.Resources.D_FP2Plebeu;
+            this.imagemCartas["Eduardo Takeo"] = Properties.Resources.E_FP7Plebeu;
+            this.imagemCartas["Guilherme Rey"] = Properties.Resources.G_FP1Plebeu;
+            this.imagemCartas["Heredia"] = Properties.Resources.H_FP8Plebeu;
+            this.imagemCartas["Kelly"] = Properties.Resources.K_FP3Plebeu;
+            this.imagemCartas["Leonardo Takuno"] = Properties.Resources.L_FP9Plebeu;
+            this.imagemCartas["Mario Toledo"] = Properties.Resources.M_FP4Plebeu;
+            this.imagemCartas["Quintas"] = Properties.Resources.Q_FP10Plebeu;
+            this.imagemCartas["Ranulfo"] = Properties.Resources.R_FP6Plebeu;
+            this.imagemCartas["Toshio"] = Properties.Resources.T_FP11Plebeu;
 
         }
 
@@ -160,41 +159,73 @@ namespace ferreirosDeYork
                 // Limpando os ComboBoxes
                 cmbPersonagem.Text = "";
                 cmbSetor.Text = "";
-
-                // Encontrando o nome completo do personagem pela primeira letra
-                string personagemCompleto = listaCartas.FirstOrDefault(carta => carta.StartsWith(personagemEscolhido));
-                if (personagemCompleto != null && imagemCartas.ContainsKey(personagemCompleto))
-                {
-                    // Criando um PictureBox para exibir a imagem do personagem no tabuleiro
-                    PictureBox pbPersonagem = new PictureBox
-                    {
-                        Image = imagemCartas[personagemCompleto],
-                        Location = CalcularPosicaoSetor(setorEscolhido), // Calcula a posição no tabuleiro
-                        Size = new Size(50, 50), // Tamanho da imagem
-                        SizeMode = PictureBoxSizeMode.StretchImage,
-                        BackColor = Color.Transparent
-                    };
-
-                    // Adicionando o PictureBox ao formulário
-                    this.Controls.Add(pbPersonagem);
-                }
-
+                organizarTabuleiro(resulatdoColocarPersonagem);
             }
          }
-        private Point CalcularPosicaoSetor(int setorEscolhido)
+
+        private void organizarTabuleiro(string estadoAtualTabuleiro)
+        {
+            estadoAtualTabuleiro = estadoAtualTabuleiro.Replace("\r", "");
+            Dictionary<string, List<string>> personagens = new Dictionary<string, List<string>>();
+            string[] personagemDados;
+
+            foreach (var personagem in estadoAtualTabuleiro.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+
+                personagemDados = personagem.Split(',');
+                if (!personagens.ContainsKey(personagemDados[0]))
+                {
+                    personagens[personagemDados[0]] = new List<string>();
+                }
+                personagens[personagemDados[0]].Add(personagemDados[1]);
+            }
+            gerarPersonagensTabuleiro(personagens);
+        }
+        
+        private void gerarPersonagensTabuleiro(Dictionary<string, List<string>> personagens)
         {
             //AJUSTAR ISSO QUANDO IMPLEMENTAR O SETOR GRAFICAMENTE
 
-            int baseX = 100; // Posição horizontal inicial
-            int baseY = 100; // Posição vertical inicial
-            int offsetX = 60; // Distância horizontal entre setores
-            int offsetY = 60; // Distância vertical entre setores
+            int baseX = 400; // Posição horizontal inicial
+            int baseY = 650; // Posição vertical inicial
+            int offsetX = 130; // Distância horizontal entre os personagens
+            int offsetY = 100; // Distância vertical entre setores
 
-            // Calculando posição com base no setor
-            int col = (setorEscolhido - 1) % 3; // Exemplo: 3 colunas por linha
-            int row = (setorEscolhido - 1) / 3;
+            foreach (var personagem in personagens)
+            {
+                for(int personagemPosicao = 0; personagemPosicao < personagem.Value.Count; personagemPosicao++)
+                {
+                    gerarImgPersonagemPosicionada(personagem.Value[personagemPosicao],
+                        new Point(
+                                baseX + (personagemPosicao * offsetX),
+                                baseY - (Convert.ToInt32(personagem.Key) * offsetY)
+                        )
+                    );
+                }
+            } 
+        }
 
-            return new Point(baseX + col * offsetX, baseY + row * offsetY);
+        private void gerarImgPersonagemPosicionada(string personagemNome, Point posicao)
+        {
+            // Encontrando o nome completo do personagem pela primeira letra
+            string personagemCompleto = listaCartas.FirstOrDefault(carta => carta.StartsWith(personagemNome));
+            if (personagemCompleto != null && imagemCartas.ContainsKey(personagemCompleto))
+            {
+                // Criando um PictureBox para exibir a imagem do personagem no tabuleiro
+                PictureBox pbPersonagem = new PictureBox
+                {
+                    Image = imagemCartas[personagemCompleto],
+                    Location = posicao, // Calcula a posição no tabuleiro
+                    Size = new Size(80, 80), // Tamanho da imagem
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                };
+
+                // Adicionando o PictureBox ao formulário
+                this.Controls.Add(pbPersonagem);
+
+                pbPersonagem.BringToFront();
+                pbPersonagem.BackColor = Color.Transparent;
+            }
         }
         private void Tabuleiro_Load(object sender, EventArgs e)
         {
@@ -212,6 +243,11 @@ namespace ferreirosDeYork
         }
 
         private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
