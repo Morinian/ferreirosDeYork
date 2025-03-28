@@ -53,6 +53,7 @@
             this.lblJogadorIdVez = new System.Windows.Forms.Label();
             this.btnVezJogador = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnPromover = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -172,11 +173,11 @@
             this.btnColocarPersonagem.BackgroundImage = global::ferreirosDeYork.Properties.Resources.RPG_GUI_v1_7;
             this.btnColocarPersonagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnColocarPersonagem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnColocarPersonagem.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnColocarPersonagem.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnColocarPersonagem.ForeColor = System.Drawing.Color.White;
-            this.btnColocarPersonagem.Location = new System.Drawing.Point(71, 688);
+            this.btnColocarPersonagem.Location = new System.Drawing.Point(56, 426);
             this.btnColocarPersonagem.Name = "btnColocarPersonagem";
-            this.btnColocarPersonagem.Size = new System.Drawing.Size(182, 92);
+            this.btnColocarPersonagem.Size = new System.Drawing.Size(117, 67);
             this.btnColocarPersonagem.TabIndex = 49;
             this.btnColocarPersonagem.Text = "Alocar Personagem";
             this.btnColocarPersonagem.UseVisualStyleBackColor = false;
@@ -373,6 +374,23 @@
             this.panel5.Size = new System.Drawing.Size(321, 345);
             this.panel5.TabIndex = 65;
             // 
+            // btnPromover
+            // 
+            this.btnPromover.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPromover.BackColor = System.Drawing.Color.Transparent;
+            this.btnPromover.BackgroundImage = global::ferreirosDeYork.Properties.Resources.RPG_GUI_v1_7;
+            this.btnPromover.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPromover.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPromover.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPromover.ForeColor = System.Drawing.Color.White;
+            this.btnPromover.Location = new System.Drawing.Point(193, 422);
+            this.btnPromover.Name = "btnPromover";
+            this.btnPromover.Size = new System.Drawing.Size(113, 71);
+            this.btnPromover.TabIndex = 66;
+            this.btnPromover.Text = "Promover";
+            this.btnPromover.UseVisualStyleBackColor = false;
+            this.btnPromover.Click += new System.EventHandler(this.btnPromover_Click);
+            // 
             // Tabuleiro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,7 +398,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::ferreirosDeYork.Properties.Resources.Frame_2;
-            this.ClientSize = new System.Drawing.Size(1234, 792);
+            this.ClientSize = new System.Drawing.Size(1234, 701);
+            this.Controls.Add(this.btnPromover);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
@@ -436,5 +455,6 @@
         private System.Windows.Forms.Label lblJogadorIdVez;
         private System.Windows.Forms.Button btnVezJogador;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnPromover;
     }
 }

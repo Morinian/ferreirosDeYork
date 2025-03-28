@@ -126,6 +126,7 @@ namespace ferreirosDeYork
             //Resultado escrito mas ignorando a primeira linha ou sej deixando só o historico de jogadas
             string[] linhas = resultadoVerificaVez.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
             lblVezJogador.Text = string.Join("\n", linhas.Skip(1));
+            organizarTabuleiro(linhas.Skip(1).ToArray());
 
             lblJogadorIdVez.Text = resultadoVerificaVez.Split(',')[0];
 
@@ -159,17 +160,15 @@ namespace ferreirosDeYork
                 // Limpando os ComboBoxes
                 cmbPersonagem.Text = "";
                 cmbSetor.Text = "";
-                organizarTabuleiro(resulatdoColocarPersonagem);
             }
          }
 
-        private void organizarTabuleiro(string estadoAtualTabuleiro)
+        private void organizarTabuleiro(string [] estadoAtualTabuleiro)
         {
-            estadoAtualTabuleiro = estadoAtualTabuleiro.Replace("\r", "");
             Dictionary<string, List<string>> personagens = new Dictionary<string, List<string>>();
             string[] personagemDados;
 
-            foreach (var personagem in estadoAtualTabuleiro.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
+            foreach (var personagem in estadoAtualTabuleiro)
             {
 
                 personagemDados = personagem.Split(',');
@@ -250,6 +249,21 @@ namespace ferreirosDeYork
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnPromover_Click(object sender, EventArgs e)
+        {
+            string personagemEscolhido = cmbPersonagem.Text.Substring(0, 1); //Pegando o resultado do ComboBox primeira letra
+            string resulatdoPromocao = Jogo.Promover(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado, personagemEscolhido);
+
+            //Tratando ERRO
+            if (resulatdoPromocao.StartsWith("ERRO"))
+                MessageBox.Show(resulatdoPromocao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                // Limpando o ComboBox
+                cmbPersonagem.Text = "";
+            }
         }
     }
 }
