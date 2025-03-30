@@ -19,6 +19,8 @@ namespace ferreirosDeYork
         public string senhaJogadorSelecionado { get; set; }
         public string idPartidaSelecionada { get; set; }
 
+        private List<PictureBox> personagensPosicao {get; set;}
+
         private string[] listaCartas = new string[]
         {
                 "Adilson Konrad",
@@ -42,6 +44,8 @@ namespace ferreirosDeYork
         {
             InitializeComponent();
             CarregarImagens();
+            lblVjogo.Text = ("V." + Jogo.versao);
+            this.personagensPosicao = new List<PictureBox>();
         }
         private void CarregarImagens()
         {
@@ -165,6 +169,8 @@ namespace ferreirosDeYork
 
         private void organizarTabuleiro(string [] estadoAtualTabuleiro)
         {
+            limparPosicionamentoPersonagens();
+
             Dictionary<string, List<string>> personagens = new Dictionary<string, List<string>>();
             string[] personagemDados;
 
@@ -204,6 +210,15 @@ namespace ferreirosDeYork
             } 
         }
 
+        private void limparPosicionamentoPersonagens()
+        {
+            foreach (PictureBox perssonagem in this.personagensPosicao)
+            {
+                this.Controls.Remove(perssonagem);
+                perssonagem.Dispose();
+            }
+        }
+
         private void gerarImgPersonagemPosicionada(string personagemNome, Point posicao)
         {
             // Encontrando o nome completo do personagem pela primeira letra
@@ -218,6 +233,9 @@ namespace ferreirosDeYork
                     Size = new Size(80, 80), // Tamanho da imagem
                     SizeMode = PictureBoxSizeMode.StretchImage,
                 };
+
+                //Mapeia os containers
+                personagensPosicao.Add(pbPersonagem);
 
                 // Adicionando o PictureBox ao formulário
                 this.Controls.Add(pbPersonagem);
@@ -264,6 +282,21 @@ namespace ferreirosDeYork
                 // Limpando o ComboBox
                 cmbPersonagem.Text = "";
             }
+        }
+
+        private void cmbPersonagem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NomeDOGrupo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
