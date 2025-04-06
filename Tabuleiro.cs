@@ -127,8 +127,9 @@ namespace ferreirosDeYork
         {
             string resultadoVerificaVez = Jogo.VerificarVez(Convert.ToInt32(idPartidaSelecionada));
 
-            //Resultado escrito mas ignorando a primeira linha ou sej deixando só o historico de jogadas
+            //Resultado escrito mas ignorando a primeira linha ou seja deixando só o historico de jogadas
             string[] linhas = resultadoVerificaVez.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+
             lblVezJogador.Text = string.Join("\n", linhas.Skip(1));
             organizarTabuleiro(linhas.Skip(1).ToArray());
 
@@ -244,6 +245,35 @@ namespace ferreirosDeYork
                 pbPersonagem.BackColor = Color.Transparent;
             }
         }
+        private void btnPromover_Click(object sender, EventArgs e)
+        {
+            string personagemEscolhido = cmbPersonagem.Text.Substring(0, 1); //Pegando o resultado do ComboBox primeira letra
+            string resulatdoPromocao = Jogo.Promover(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado, personagemEscolhido);
+
+            //Tratando ERRO
+            if (resulatdoPromocao.StartsWith("ERRO"))
+                MessageBox.Show(resulatdoPromocao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                // Limpando o ComboBox
+                cmbPersonagem.Text = "";
+            }
+        }
+        private void btnVotar_Click(object sender, EventArgs e)
+        {
+            //Pega o primeira letra
+            string votar = cmbVotacao.Text.Substring(0, 1);
+            string resultadoVotacao = Jogo.Votar(Convert.ToInt16(idJogadorSelecionado), senhaJogadorSelecionado, votar); //Pega o resultado 
+
+            //Tratando ERRO
+            if (resultadoVotacao.StartsWith("ERRO"))
+                MessageBox.Show(resultadoVotacao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                // Limpando o ComboBox
+                cmbVotacao.Text = "";
+            }
+        }
         private void Tabuleiro_Load(object sender, EventArgs e)
         {
 
@@ -269,20 +299,6 @@ namespace ferreirosDeYork
 
         }
 
-        private void btnPromover_Click(object sender, EventArgs e)
-        {
-            string personagemEscolhido = cmbPersonagem.Text.Substring(0, 1); //Pegando o resultado do ComboBox primeira letra
-            string resulatdoPromocao = Jogo.Promover(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado, personagemEscolhido);
-
-            //Tratando ERRO
-            if (resulatdoPromocao.StartsWith("ERRO"))
-                MessageBox.Show(resulatdoPromocao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
-            {
-                // Limpando o ComboBox
-                cmbPersonagem.Text = "";
-            }
-        }
 
         private void cmbPersonagem_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -298,5 +314,6 @@ namespace ferreirosDeYork
         {
 
         }
+
     }
 }
