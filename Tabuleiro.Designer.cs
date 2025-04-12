@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tabuleiro));
             this.lblNomeJogadorPartida = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.lblVjogo = new System.Windows.Forms.Label();
             this.btnVotar = new System.Windows.Forms.Button();
             this.cmbVotacao = new System.Windows.Forms.ComboBox();
+            this.tmrVerificaVez = new System.Windows.Forms.Timer(this.components);
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -449,6 +451,11 @@
             this.cmbVotacao.Size = new System.Drawing.Size(131, 21);
             this.cmbVotacao.TabIndex = 55;
             // 
+            // tmrVerificaVez
+            // 
+            this.tmrVerificaVez.Interval = 5000;
+            this.tmrVerificaVez.Tick += new System.EventHandler(this.tmrVerificaVez_Tick);
+            // 
             // Tabuleiro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,5 +529,6 @@
         private System.Windows.Forms.Label lblVjogo;
         private System.Windows.Forms.Button btnVotar;
         private System.Windows.Forms.ComboBox cmbVotacao;
+        private System.Windows.Forms.Timer tmrVerificaVez;
     }
 }

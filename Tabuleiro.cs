@@ -274,6 +274,14 @@ namespace ferreirosDeYork
                 cmbVotacao.Text = "";
             }
         }
+        private void VerificarVez()
+        {
+
+        }
+        private void tmrVerificaVez_Tick(object sender, EventArgs e)
+        {
+
+        }
         private void Tabuleiro_Load(object sender, EventArgs e)
         {
 
