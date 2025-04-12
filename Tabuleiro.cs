@@ -37,6 +37,8 @@ namespace ferreirosDeYork
                 "Ranulfo",
                 "Toshio"
         };
+        public string personagens;
+
         //mapeamento de dicionario para minhas imagens
         private Dictionary<string, Image> imagemCartas;
 
@@ -46,6 +48,9 @@ namespace ferreirosDeYork
             CarregarImagens();
             lblVjogo.Text = ("V." + Jogo.versao);
             this.personagensPosicao = new List<PictureBox>();
+
+            personagens = "ABCDEGHKLMQRT";
+            tmrVerificaVez.Enabled = true;
         }
         private void CarregarImagens()
         {
@@ -123,50 +128,6 @@ namespace ferreirosDeYork
                 yOffset += 40;
             }
         }
-        private void btnVezJogador_Click(object sender, EventArgs e)
-        {
-            string resultadoVerificaVez = Jogo.VerificarVez(Convert.ToInt32(idPartidaSelecionada));
-
-            //Resultado escrito mas ignorando a primeira linha ou seja deixando só o historico de jogadas
-            string[] linhas = resultadoVerificaVez.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-
-            lblVezJogador.Text = string.Join("\n", linhas.Skip(1));
-            organizarTabuleiro(linhas.Skip(1).ToArray());
-
-            lblJogadorIdVez.Text = resultadoVerificaVez.Split(',')[0];
-
-            //---JOGADORES---
-            string retornoJogador = Jogo.ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
-
-            //Tratando o retorno das partidas
-            retornoJogador = retornoJogador.Replace("\r", "");
-            string[] listaJogadores = retornoJogador.Split('\n'); // separando os itens da lista pelo \n
-
-            //conferindo os jogadores 
-            for (int i = 0; i < listaJogadores.Length - 1; i++)
-            {
-               if(lblJogadorIdVez.Text == listaJogadores[i].Split(',')[0])
-                {
-                    lblJogadorNomeVez.Text = listaJogadores[i].Split(',')[1];
-                }
-            }
-        }
-        private void btnColocarPersonagem_Click(object sender, EventArgs e)
-        {
-            string personagemEscolhido = cmbPersonagem.Text.Substring(0,1); //Pegando o resultado do ComboBox primeira letra
-            int setorEscolhido = int.Parse(cmbSetor.Text.Split(',')[0]); //Pegando o resultado do ComboBox pegando só o numero
-            string resulatdoColocarPersonagem = Jogo.ColocarPersonagem(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado,Convert.ToInt32(setorEscolhido), personagemEscolhido);
-
-            //Tratando ERRO
-            if (resulatdoColocarPersonagem.StartsWith("ERRO"))
-                MessageBox.Show(resulatdoColocarPersonagem, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
-            {
-                // Limpando os ComboBoxes
-                cmbPersonagem.Text = "";
-                cmbSetor.Text = "";
-            }
-         }
 
         private void organizarTabuleiro(string [] estadoAtualTabuleiro)
         {
@@ -276,11 +237,77 @@ namespace ferreirosDeYork
         }
         private void VerificarVez()
         {
+            string resultadoVerificaVez = Jogo.VerificarVez(Convert.ToInt32(idPartidaSelecionada));
 
+            //Resultado escrito mas ignorando a primeira linha ou seja deixando só o historico de jogadas
+            string[] linhas = resultadoVerificaVez.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+            lblVezJogador.Text = string.Join("\n", linhas.Skip(1));
+            organizarTabuleiro(linhas.Skip(1).ToArray());
+
+            lblJogadorIdVez.Text = resultadoVerificaVez.Split(',')[0];
+            lblStatusJogo.Text = resultadoVerificaVez.Split(',')[3];
+
+            //---JOGADORES---
+            string retornoJogador = Jogo.ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
+
+            //Tratando o retorno das partidas
+            retornoJogador = retornoJogador.Replace("\r", "");
+            string[] listaJogadores = retornoJogador.Split('\n'); // separando os itens da lista pelo \n
+
+            //conferindo os jogadores 
+            for (int i = 0; i < listaJogadores.Length - 1; i++)
+            {
+                if (lblJogadorIdVez.Text == listaJogadores[i].Split(',')[0])
+                {
+                    lblJogadorNomeVez.Text = listaJogadores[i].Split(',')[1];
+                }
+            }
+        }
+
+        private void PosicionarPersonagem()
+        {
+            Random random = new Random();
+
+            //Pegando personagem
+            int indice = random.Next(personagens.Length);
+            string personagemEscolhido = personagens[indice].ToString(); //Pegando a letra do personagem
+            personagens = personagens.Remove(indice, 1);
+
+            //Pegando o setor
+            int setorEscolhido = random.Next(1, 5); 
+
+            string resulatdoColocarPersonagem = Jogo.ColocarPersonagem(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado, Convert.ToInt32(setorEscolhido), personagemEscolhido);
+            Console.WriteLine($"Sorteado: {personagemEscolhido} | Restantes: {personagens}");
+
+            //Tratando ERRO
+            if (resulatdoColocarPersonagem.StartsWith("ERRO"))
+                MessageBox.Show(resulatdoColocarPersonagem, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         private void tmrVerificaVez_Tick(object sender, EventArgs e)
         {
+            //Inicio
+            tmrVerificaVez.Enabled = false;
+            
+            //Jogador 
+            VerificarVez();
 
+            if( lblJogadorIdVez.Text == idJogadorSelecionado)
+            {
+                if(lblStatusJogo.Text.Trim().ToUpper() == "S")
+                {
+                    label3.Text = "Entrei";
+                    PosicionarPersonagem();
+                }
+                else if(lblStatusJogo.Text.Trim().ToUpper() == "P")
+                {
+                    personagens = "ABCDEGHKLMQRT";
+                }
+                
+            }
+
+            //Fim
+            tmrVerificaVez.Enabled = true;
         }
         private void Tabuleiro_Load(object sender, EventArgs e)
         {
