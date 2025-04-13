@@ -266,7 +266,7 @@ namespace ferreirosDeYork
             Random random = new Random();
 
             //Pegando personagem
-            string todosPersonagens = "ABCEGHKMQRT";
+            string todosPersonagens = "ABCEGHKLMQRT";
 
             HashSet<string> personagensNoTabuleiro = personagens.Values.SelectMany(p => p).ToHashSet();
             List<string> personagensDisponiveis = todosPersonagens
@@ -289,7 +289,6 @@ namespace ferreirosDeYork
                     setoresDisponiveis.Add(setor);
                 }
             }
-            label9.Text = string.Join(Environment.NewLine, personagensDisponiveis);
 
             string setorEscolhido = setoresDisponiveis[random.Next(setoresDisponiveis.Count)];
 
