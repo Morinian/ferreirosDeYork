@@ -37,11 +37,10 @@ namespace ferreirosDeYork
                 "Ranulfo",
                 "Toshio"
         };
-        public string personagens;
 
         //mapeamento de dicionario para minhas imagens
         private Dictionary<string, Image> imagemCartas;
-
+        Dictionary<string, List<string>> personagens = new Dictionary<string, List<string>>();
         public Tabuleiro()
         {
             InitializeComponent();
@@ -49,7 +48,6 @@ namespace ferreirosDeYork
             lblVjogo.Text = ("V." + Jogo.versao);
             this.personagensPosicao = new List<PictureBox>();
 
-            personagens = "ABCDEGHKLMQRT";
             tmrVerificaVez.Enabled = true;
         }
         private void CarregarImagens()
@@ -99,7 +97,6 @@ namespace ferreirosDeYork
             //Mostrando os nomes
             lblCartaFavorita.Text = string.Join(Environment.NewLine, cartasNaMao);
 
-
             // Exibindo as cartas e imagens no formulário
             int yOffset = 199; // Posição inicial vertical
             foreach (var carta in cartasNaMao)
@@ -133,12 +130,11 @@ namespace ferreirosDeYork
         {
             limparPosicionamentoPersonagens();
 
-            Dictionary<string, List<string>> personagens = new Dictionary<string, List<string>>();
+            personagens.Clear();
             string[] personagemDados;
 
             foreach (var personagem in estadoAtualTabuleiro)
             {
-
                 personagemDados = personagem.Split(',');
                 if (!personagens.ContainsKey(personagemDados[0]))
                 {
@@ -246,7 +242,7 @@ namespace ferreirosDeYork
             organizarTabuleiro(linhas.Skip(1).ToArray());
 
             lblJogadorIdVez.Text = resultadoVerificaVez.Split(',')[0];
-            lblStatusJogo.Text = resultadoVerificaVez.Split(',')[3];
+            lblStatusJogo.Text = resultadoVerificaVez.Split(',')[3].Trim().ToUpper()[0].ToString();
 
             //---JOGADORES---
             string retornoJogador = Jogo.ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
@@ -270,15 +266,35 @@ namespace ferreirosDeYork
             Random random = new Random();
 
             //Pegando personagem
-            int indice = random.Next(personagens.Length);
-            string personagemEscolhido = personagens[indice].ToString(); //Pegando a letra do personagem
-            personagens = personagens.Remove(indice, 1);
+            string todosPersonagens = "ABCEGHKMQRT";
+
+            HashSet<string> personagensNoTabuleiro = personagens.Values.SelectMany(p => p).ToHashSet();
+            List<string> personagensDisponiveis = todosPersonagens
+                .Select(c => c.ToString())
+                .Where(p => !personagensNoTabuleiro.Contains(p))
+                .ToList();
+
+            string personagemEscolhido = personagensDisponiveis[random.Next(personagensDisponiveis.Count)];
 
             //Pegando o setor
-            int setorEscolhido = random.Next(1, 5); 
+            List<string> setoresDisponiveis = new List<string>();
 
+            for (int i = 1; i < 5; i++)
+            {
+                string setor = i.ToString();
+
+                // Se o setor não existe ou tem menos de 4 personagens, ele está disponível
+                if (!personagens.ContainsKey(setor) || personagens[setor].Count < 4)
+                {
+                    setoresDisponiveis.Add(setor);
+                }
+            }
+            label9.Text = string.Join(Environment.NewLine, personagensDisponiveis);
+
+            string setorEscolhido = setoresDisponiveis[random.Next(setoresDisponiveis.Count)];
+
+            //Chamada Função
             string resulatdoColocarPersonagem = Jogo.ColocarPersonagem(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado, Convert.ToInt32(setorEscolhido), personagemEscolhido);
-            Console.WriteLine($"Sorteado: {personagemEscolhido} | Restantes: {personagens}");
 
             //Tratando ERRO
             if (resulatdoColocarPersonagem.StartsWith("ERRO"))
@@ -294,14 +310,14 @@ namespace ferreirosDeYork
 
             if( lblJogadorIdVez.Text == idJogadorSelecionado)
             {
-                if(lblStatusJogo.Text.Trim().ToUpper() == "S")
+
+                if (lblStatusJogo.Text == "S")
                 {
-                    label3.Text = "Entrei";
                     PosicionarPersonagem();
                 }
-                else if(lblStatusJogo.Text.Trim().ToUpper() == "P")
+                else if(lblStatusJogo.Text == "P")
                 {
-                    personagens = "ABCDEGHKLMQRT";
+      
                 }
                 
             }
