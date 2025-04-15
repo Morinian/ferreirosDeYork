@@ -8,15 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KingMeServer;
+using ferreirosDeYork.Gameplay;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ferreirosDeYork
 {
     public partial class Tabuleiro: Form
     {
-        public string nomeJogadorSelecionado { get; set; }
-        public string idJogadorSelecionado { get; set; }
-        public string senhaJogadorSelecionado { get; set; }
+        public Jogador jogador { get; set; }
         public string idPartidaSelecionada { get; set; }
 
         private List<PictureBox> personagensPosicao {get; set;}
@@ -38,16 +37,18 @@ namespace ferreirosDeYork
                 "Toshio"
         };
 
+        private const string listaDeCartasAbreviadas = "ABCEGHKLMQRT";
+
         //mapeamento de dicionario para minhas imagens
         private Dictionary<string, Image> imagemCartas;
         Dictionary<string, List<string>> personagens = new Dictionary<string, List<string>>();
-        public Tabuleiro()
+        public Tabuleiro(Jogador jogador)
         {
             InitializeComponent();
             CarregarImagens();
             lblVjogo.Text = ("V." + Jogo.versao);
             this.personagensPosicao = new List<PictureBox>();
-
+            this.jogador = jogador;
             tmrVerificaVez.Enabled = true;
         }
         private void CarregarImagens()
@@ -70,17 +71,17 @@ namespace ferreirosDeYork
 
         }
 
-        public void AtualizarTelaTabuleiro()
+        public void AtualizarDadosTelaJogo()
         {
             List<string> cartasNaMao = new List<string>();
             string resultadoCartas;
 
             //Atribuindo os valores do menu para o tabuleiro
-            lblNomeJogadorPartida.Text = nomeJogadorSelecionado;
-            lblIdJogadorIdPartida.Text = idJogadorSelecionado;
-            lblSenhaJogadorPartida.Text = senhaJogadorSelecionado;
+            lblNomeJogadorPartida.Text = jogador.nomeJogadorSelecionado;
+            lblIdJogadorIdPartida.Text = jogador.idJogadorSelecionado;
+            lblSenhaJogadorPartida.Text = jogador.senhaJogadorSelecionado;
 
-            resultadoCartas = Jogo.ListarCartas(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado);
+            resultadoCartas = Jogo.ListarCartas(Convert.ToInt32(jogador.idJogadorSelecionado), jogador.senhaJogadorSelecionado);
 
             //Comparando a primeira letra com a lista de nomes
             for(int i = 0; i < 6; i++)
@@ -204,32 +205,15 @@ namespace ferreirosDeYork
         }
         private void btnPromover_Click(object sender, EventArgs e)
         {
-            string personagemEscolhido = cmbPersonagem.Text.Substring(0, 1); //Pegando o resultado do ComboBox primeira letra
-            string resulatdoPromocao = Jogo.Promover(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado, personagemEscolhido);
-
-            //Tratando ERRO
-            if (resulatdoPromocao.StartsWith("ERRO"))
-                MessageBox.Show(resulatdoPromocao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
-            {
-                // Limpando o ComboBox
-                cmbPersonagem.Text = "";
-            }
+            jogador.PromoverPersonagem(cmbPersonagem.Text.Substring(0, 1)); //Pegando o resultado do ComboBox primeira letra
+            // Limpando o ComboBox
+            cmbPersonagem.Text = "";
         }
         private void btnVotar_Click(object sender, EventArgs e)
-        {
-            //Pega o primeira letra
-            string votar = cmbVotacao.Text.Substring(0, 1);
-            string resultadoVotacao = Jogo.Votar(Convert.ToInt16(idJogadorSelecionado), senhaJogadorSelecionado, votar); //Pega o resultado 
-
-            //Tratando ERRO
-            if (resultadoVotacao.StartsWith("ERRO"))
-                MessageBox.Show(resultadoVotacao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
-            {
-                // Limpando o ComboBox
-                cmbVotacao.Text = "";
-            }
+        { 
+            jogador.Votar(cmbVotacao.Text.Substring(0, 1)); //Pega a primeira letra
+            // Limpando o ComboBox
+            cmbVotacao.Text = "";
         }
         private void VerificarVez()
         {
@@ -261,44 +245,6 @@ namespace ferreirosDeYork
             }
         }
 
-        private void PosicionarPersonagem()
-        {
-            Random random = new Random();
-
-            //Pegando personagem
-            string todosPersonagens = "ABCEGHKLMQRT";
-
-            HashSet<string> personagensNoTabuleiro = personagens.Values.SelectMany(p => p).ToHashSet();
-            List<string> personagensDisponiveis = todosPersonagens
-                .Select(c => c.ToString())
-                .Where(p => !personagensNoTabuleiro.Contains(p))
-                .ToList();
-
-            string personagemEscolhido = personagensDisponiveis[random.Next(personagensDisponiveis.Count)];
-
-            //Pegando o setor
-            List<string> setoresDisponiveis = new List<string>();
-
-            for (int i = 1; i < 5; i++)
-            {
-                string setor = i.ToString();
-
-                // Se o setor não existe ou tem menos de 4 personagens, ele está disponível
-                if (!personagens.ContainsKey(setor) || personagens[setor].Count < 4)
-                {
-                    setoresDisponiveis.Add(setor);
-                }
-            }
-
-            string setorEscolhido = setoresDisponiveis[random.Next(setoresDisponiveis.Count)];
-
-            //Chamada Função
-            string resulatdoColocarPersonagem = Jogo.ColocarPersonagem(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado, Convert.ToInt32(setorEscolhido), personagemEscolhido);
-
-            //Tratando ERRO
-            if (resulatdoColocarPersonagem.StartsWith("ERRO"))
-                MessageBox.Show(resulatdoColocarPersonagem, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
         private void tmrVerificaVez_Tick(object sender, EventArgs e)
         {
             //Inicio
@@ -307,12 +253,12 @@ namespace ferreirosDeYork
             //Jogador 
             VerificarVez();
 
-            if( lblJogadorIdVez.Text == idJogadorSelecionado)
+            if(lblJogadorIdVez.Text == jogador.idJogadorSelecionado)
             {
 
                 if (lblStatusJogo.Text == "S")
                 {
-                    PosicionarPersonagem();
+                    jogador.PosicionarPersonagem(listaDeCartasAbreviadas, personagens);
                 }
                 else if(lblStatusJogo.Text == "P")
                 {
