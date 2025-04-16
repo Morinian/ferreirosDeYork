@@ -18,7 +18,7 @@ namespace ferreirosDeYork
         public Jogador jogador { get; set; }
         public string idPartidaSelecionada { get; set; }
 
-        private List<PictureBox> personagensPosicao {get; set;}
+        private Dictionary<string, List<PictureBox>> estruturaTabuleiro { get; set; }
 
         private string[] listaCartas = new string[]
         {
@@ -47,9 +47,9 @@ namespace ferreirosDeYork
             InitializeComponent();
             CarregarImagens();
             lblVjogo.Text = ("V." + Jogo.versao);
-            this.personagensPosicao = new List<PictureBox>();
             this.jogador = jogador;
             tmrVerificaVez.Enabled = true;
+            EstruturarTabuleiro();
         }
         private void CarregarImagens()
         {
@@ -124,10 +124,61 @@ namespace ferreirosDeYork
             }
         }
 
+        private void EstruturarTabuleiro()
+        {
+            this.estruturaTabuleiro = new Dictionary<string, List<PictureBox>>();
+
+            int baseX = 400; // Posição horizontal inicial
+            int baseY = 650; // Posição vertical inicial
+            int offsetX = 130; // Distância horizontal entre os personagens
+            int offsetY = 100; // Distância vertical entre setores
+
+            PictureBox posicaoSetor;
+            Point coordenadasPosicaoSetor;
+            string setorKey;
+            for (int setor = 0; setor <= 6; setor++)
+            {
+                setorKey = setor == 6 ? "10" : setor.ToString(); //Considera a key do Rei
+
+                //Cria o setor na estrutura do tabuleiro
+                this.estruturaTabuleiro.Add(setorKey, new List<PictureBox>());
+
+                for (int personagemPosicao = 0; personagemPosicao <= 4; personagemPosicao++) {
+
+                    // Calcula a posição no tabuleiro
+                    coordenadasPosicaoSetor = new Point(
+                            setor == 6 ? 590 //Posição X do Rei
+                            : baseX + (personagemPosicao * offsetX),
+                            setor == 6 ? 80 //Posição Y do Rei
+                            : baseY - (Convert.ToInt32(setor) * offsetY)
+                    );
+
+                    posicaoSetor = new PictureBox
+                    {
+                        Location = coordenadasPosicaoSetor,
+                        Size = new Size(80, 80), // Tamanho da imagem
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        BackColor = Color.Transparent
+                    };
+
+                    //Adiciona uma posição de personagem no setor
+                    this.estruturaTabuleiro[setorKey].Add(posicaoSetor);
+                    // Adicionando o PictureBox ao formulário
+                    this.Controls.Add(posicaoSetor);
+
+                    //Adiciona apenas 1 PictureBox para o rei
+                    if (setor == 6)
+                    {
+                        posicaoSetor.BringToFront();
+                        break;
+                    }
+                        
+                }
+            }
+        }
+
         private void organizarTabuleiro(string [] estadoAtualTabuleiro)
         {
-            limparPosicionamentoPersonagens();
-
             personagens.Clear();
             string[] personagemDados;
 
@@ -140,66 +191,40 @@ namespace ferreirosDeYork
                 }
                 personagens[personagemDados[0]].Add(personagemDados[1]);
             }
-            gerarPersonagensTabuleiro(personagens);
+            gerarPersonagensTabuleiro();
         }
         
-        private void gerarPersonagensTabuleiro(Dictionary<string, List<string>> personagens)
+        private void gerarPersonagensTabuleiro()
         {
-            //AJUSTAR ISSO QUANDO IMPLEMENTAR O SETOR GRAFICAMENTE
-
-            int baseX = 400; // Posição horizontal inicial
-            int baseY = 650; // Posição vertical inicial
-            int offsetX = 130; // Distância horizontal entre os personagens
-            int offsetY = 100; // Distância vertical entre setores
-
-            foreach (var personagem in personagens)
+            LimparImagensTabuleiro();
+            string personagemNomeCompleto;
+            string personagemNomeAbreviado;
+            foreach (var setor in personagens)
             {
-                for(int personagemPosicao = 0; personagemPosicao < personagem.Value.Count; personagemPosicao++)
+                for(int personagemPosicao = 0; personagemPosicao < setor.Value.Count; personagemPosicao++)
                 {
-                    gerarImgPersonagemPosicionada(personagem.Value[personagemPosicao],
-                        new Point(
-                                baseX + (personagemPosicao * offsetX),
-                                baseY - (Convert.ToInt32(personagem.Key) * offsetY)
-                        )
-                    );
+                    personagemNomeAbreviado = setor.Value[personagemPosicao];
+                    // Encontrando o nome completo do personagem pela primeira letra
+                    personagemNomeCompleto = listaCartas.FirstOrDefault(carta => carta.StartsWith(personagemNomeAbreviado));
+                    if (personagemNomeCompleto != null && this.imagemCartas.ContainsKey(personagemNomeCompleto))
+                    {
+                        this.estruturaTabuleiro[setor.Key][personagemPosicao].Image = this.imagemCartas[personagemNomeCompleto];
+                    }
                 }
             } 
         }
 
-        private void limparPosicionamentoPersonagens()
+        private void LimparImagensTabuleiro()
         {
-            foreach (PictureBox perssonagem in this.personagensPosicao)
+            foreach(List<PictureBox> setor in this.estruturaTabuleiro.Values)
             {
-                this.Controls.Remove(perssonagem);
-                perssonagem.Dispose();
-            }
-        }
-
-        private void gerarImgPersonagemPosicionada(string personagemNome, Point posicao)
-        {
-            // Encontrando o nome completo do personagem pela primeira letra
-            string personagemCompleto = listaCartas.FirstOrDefault(carta => carta.StartsWith(personagemNome));
-            if (personagemCompleto != null && imagemCartas.ContainsKey(personagemCompleto))
-            {
-                // Criando um PictureBox para exibir a imagem do personagem no tabuleiro
-                PictureBox pbPersonagem = new PictureBox
+                foreach (PictureBox personagemPosicao in setor)
                 {
-                    Image = imagemCartas[personagemCompleto],
-                    Location = posicao, // Calcula a posição no tabuleiro
-                    Size = new Size(80, 80), // Tamanho da imagem
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                };
-
-                //Mapeia os containers
-                personagensPosicao.Add(pbPersonagem);
-
-                // Adicionando o PictureBox ao formulário
-                this.Controls.Add(pbPersonagem);
-
-                pbPersonagem.BringToFront();
-                pbPersonagem.BackColor = Color.Transparent;
+                    personagemPosicao.Image = null;
+                }
             }
         }
+
         private void btnPromover_Click(object sender, EventArgs e)
         {
             //jogador.PromoverPersonagem(cmbPersonagem.Text.Substring(0, 1)); //Pegando o resultado do ComboBox primeira letra
