@@ -11,21 +11,40 @@ namespace ferreirosDeYork.Gameplay
 {
     public class Jogador
     {
-        public string nomeJogadorSelecionado { get; set; }
-        public string idJogadorSelecionado { get; set; }
-        public string senhaJogadorSelecionado { get; set; }
+        public string nomeJogador { get; set; }
+        public string idJogador { get; set; }
+        public string senhaJogador { get; set; }
+        public string cartasNaMao { get; }
 
-
-        public Jogador(string nomeJogadorSelecionado, string idJogadorSelecionado, string senhaJogadorSelecionado)
+        public Jogador(string nomeJogador, string idJogador, string senhaJogador)
         {
-            this.nomeJogadorSelecionado = nomeJogadorSelecionado;
-            this.idJogadorSelecionado = idJogadorSelecionado;
-            this.senhaJogadorSelecionado = senhaJogadorSelecionado;
+            this.nomeJogador = nomeJogador;
+            this.idJogador = idJogador;
+            this.senhaJogador = senhaJogador;
+            this.cartasNaMao = Jogo.ListarCartas(Convert.ToInt32(idJogador), senhaJogador);
         }
 
-        public void PromoverPersonagem(string personagemEscolhido)
+
+        private string EscolherPersonagemPromocao(Dictionary<string, List<string>> personagens)
         {
-            string resulatdoPromocao = Jogo.Promover(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado, personagemEscolhido);
+            string setorAtual;
+            for (int setor = 1; setor <= 5; setor++)
+            {
+                setorAtual = setor.ToString();
+                if (personagens.ContainsKey(setorAtual) && personagens[setorAtual].Count == 4)
+                    personagens.Remove((setor - 1).ToString());
+            }
+
+            Random random = new Random();
+            string setorEscolhidoAleatoriamente = personagens.Keys.ElementAt(random.Next(personagens.Count));
+            int personagemEscolhidoAleatoriamente = random.Next(personagens[setorEscolhidoAleatoriamente].Count);
+            return personagens[setorEscolhidoAleatoriamente][personagemEscolhidoAleatoriamente];
+        }
+
+        public void PromoverPersonagem(Dictionary<string, List<string>> personagens)
+        {
+            string personagemEscolhido = EscolherPersonagemPromocao(personagens);
+            string resulatdoPromocao = Jogo.Promover(Convert.ToInt32(idJogador), senhaJogador, personagemEscolhido);
 
             //Tratando ERRO
             if (resulatdoPromocao.StartsWith("ERRO"))
@@ -34,7 +53,7 @@ namespace ferreirosDeYork.Gameplay
 
         public void Votar(string voto) 
         {
-            string resultadoVotacao = Jogo.Votar(Convert.ToInt16(idJogadorSelecionado), senhaJogadorSelecionado, voto); //Pega o resultado 
+            string resultadoVotacao = Jogo.Votar(Convert.ToInt16(idJogador), senhaJogador, voto); //Pega o resultado 
 
             //Tratando ERRO
             if (resultadoVotacao.StartsWith("ERRO"))
@@ -70,7 +89,7 @@ namespace ferreirosDeYork.Gameplay
             string setorEscolhido = setoresDisponiveis[random.Next(setoresDisponiveis.Count)];
 
             //Chamada Função
-            string resulatdoColocarPersonagem = Jogo.ColocarPersonagem(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado, Convert.ToInt32(setorEscolhido), personagemEscolhido);
+            string resulatdoColocarPersonagem = Jogo.ColocarPersonagem(Convert.ToInt32(idJogador), senhaJogador, Convert.ToInt32(setorEscolhido), personagemEscolhido);
 
             //Tratando ERRO
             if (resulatdoColocarPersonagem.StartsWith("ERRO"))

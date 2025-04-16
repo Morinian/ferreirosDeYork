@@ -21,7 +21,7 @@ namespace ferreirosDeYork
         public string idPartidaSelecionada { get; set; }
         public string nomePartidaSelecionada { get; set; }
         public string senhaPartidaSelecionada { get; set; }
-        public string nomeJogadorSelecionado { get; set; }
+        public string nomeJogador { get; set; }
         public string resultadoEntrarPartidaSelecionada { get; set; }
 
 
@@ -61,7 +61,7 @@ namespace ferreirosDeYork
             lblPartidaId.Text = idPartidaSelecionada;
             lblNomePartida.Text = nomePartidaSelecionada;
             lblSenhaPartida.Text = senhaPartidaSelecionada;
-            lblNomeJogadorPartida.Text = nomeJogadorSelecionado;
+            lblNomeJogadorPartida.Text = nomeJogador;
 
             //pergando o id e a senha do jogador que vem em uma string unica
             string[] dadosJogador = resultadoEntrarPartidaSelecionada.Split(',');
@@ -120,7 +120,7 @@ namespace ferreirosDeYork
                 }
                 else
                 {
-                    jogador = new Jogador(this.nomeJogadorSelecionado, lblIdJogadorIdPartida.Text, lblSenhaJogadorPartida.Text);
+                    jogador = new Jogador(this.nomeJogador, lblIdJogadorIdPartida.Text, lblSenhaJogadorPartida.Text);
                     //Valores para o tabuleiro
                     tabuleiro = new Tabuleiro(jogador);
                     tabuleiro.idPartidaSelecionada = lblPartidaId.Text;
@@ -134,7 +134,7 @@ namespace ferreirosDeYork
             }
             else if (estadoPartida == "J")
             {
-                jogador = new Jogador(this.nomeJogadorSelecionado, lblIdJogadorIdPartida.Text, lblSenhaJogadorPartida.Text);
+                jogador = new Jogador(this.nomeJogador, lblIdJogadorIdPartida.Text, lblSenhaJogadorPartida.Text);
                 //Valores para o tabuleiro
                 tabuleiro = new Tabuleiro(jogador);
                 tabuleiro.idPartidaSelecionada = lblPartidaId.Text;

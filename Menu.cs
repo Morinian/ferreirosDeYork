@@ -20,7 +20,7 @@ namespace ferreirosDeYork
         private string idPartidaSelecionada;
         private string nomePartidaSelecionada;
         private string senhaPartidaSelecionada;
-        private string nomeJogadorSelecionado;
+        private string nomeJogador;
         private string resultadoEntrarPartidaSelecionada;
         public TelaInicial()
         {
@@ -124,7 +124,7 @@ namespace ferreirosDeYork
                 //Valores para o Lobby
                 lobby.idPartidaSelecionada = lblPartidaId.Text;
                 lobby.nomePartidaSelecionada = lblNomePartida.Text;
-                lobby.nomeJogadorSelecionado = txtNomeJogador.Text;
+                lobby.nomeJogador = txtNomeJogador.Text;
                 lobby.senhaPartidaSelecionada = txtSenhaEntrarPartida.Text;
                 lobby.resultadoEntrarPartidaSelecionada = resultadoEntrar;
 

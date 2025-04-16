@@ -74,21 +74,18 @@ namespace ferreirosDeYork
         public void AtualizarDadosTelaJogo()
         {
             List<string> cartasNaMao = new List<string>();
-            string resultadoCartas;
 
             //Atribuindo os valores do menu para o tabuleiro
-            lblNomeJogadorPartida.Text = jogador.nomeJogadorSelecionado;
-            lblIdJogadorIdPartida.Text = jogador.idJogadorSelecionado;
-            lblSenhaJogadorPartida.Text = jogador.senhaJogadorSelecionado;
-
-            resultadoCartas = Jogo.ListarCartas(Convert.ToInt32(jogador.idJogadorSelecionado), jogador.senhaJogadorSelecionado);
+            lblNomeJogadorPartida.Text = jogador.nomeJogador;
+            lblIdJogadorIdPartida.Text = jogador.idJogador;
+            lblSenhaJogadorPartida.Text = jogador.senhaJogador;
 
             //Comparando a primeira letra com a lista de nomes
             for(int i = 0; i < 6; i++)
             {
                 for(int j = 0; j < 13; j++)
                 {
-                    if (listaCartas[j].Substring(0, 1) == resultadoCartas.Substring(i, 1))
+                    if (listaCartas[j].Substring(0, 1) == jogador.cartasNaMao.Substring(i, 1))
                     {
                         cartasNaMao.Add(listaCartas[j]);
                     }
@@ -205,9 +202,9 @@ namespace ferreirosDeYork
         }
         private void btnPromover_Click(object sender, EventArgs e)
         {
-            jogador.PromoverPersonagem(cmbPersonagem.Text.Substring(0, 1)); //Pegando o resultado do ComboBox primeira letra
-            // Limpando o ComboBox
-            cmbPersonagem.Text = "";
+            //jogador.PromoverPersonagem(cmbPersonagem.Text.Substring(0, 1)); //Pegando o resultado do ComboBox primeira letra
+            //// Limpando o ComboBox
+            //cmbPersonagem.Text = "";
         }
         private void btnVotar_Click(object sender, EventArgs e)
         { 
@@ -253,7 +250,7 @@ namespace ferreirosDeYork
             //Jogador 
             VerificarVez();
 
-            if(lblJogadorIdVez.Text == jogador.idJogadorSelecionado)
+            if(lblJogadorIdVez.Text == jogador.idJogador)
             {
 
                 if (lblStatusJogo.Text == "S")
@@ -262,7 +259,11 @@ namespace ferreirosDeYork
                 }
                 else if(lblStatusJogo.Text == "P")
                 {
-      
+                    jogador.PromoverPersonagem(personagens);
+                }
+                else if(lblStatusJogo.Text == "V")
+                {
+
                 }
                 
             }
