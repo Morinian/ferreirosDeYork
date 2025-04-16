@@ -16,12 +16,15 @@ namespace ferreirosDeYork.Gameplay
         public string senhaJogador { get; set; }
         public string cartasNaMao { get; }
 
+        public bool tenhoVotosNao { get; set; }
+
         public Jogador(string nomeJogador, string idJogador, string senhaJogador)
         {
             this.nomeJogador = nomeJogador;
             this.idJogador = idJogador;
             this.senhaJogador = senhaJogador;
             this.cartasNaMao = Jogo.ListarCartas(Convert.ToInt32(idJogador), senhaJogador);
+            this.tenhoVotosNao = true;
         }
 
 
@@ -51,13 +54,37 @@ namespace ferreirosDeYork.Gameplay
                 MessageBox.Show(resulatdoPromocao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        public void Votar(string voto) 
+        public void Votar() 
         {
-            string resultadoVotacao = Jogo.Votar(Convert.ToInt16(idJogador), senhaJogador, voto); //Pega o resultado 
+            string voto = "S";
+            if (this.tenhoVotosNao)
+            {
+                Random rnd = new Random();
+                voto = rnd.Next(2) == 0 ? "S" : "N";
+            }
 
-            //Tratando ERRO
-            if (resultadoVotacao.StartsWith("ERRO"))
-                MessageBox.Show(resultadoVotacao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            while (true)
+            {
+                string resultadoVotacao = Jogo.Votar(Convert.ToInt16(idJogador), senhaJogador, voto); //Pega o resultado 
+
+                //Tratando ERRO
+                if (resultadoVotacao.StartsWith("ERRO"))
+                {
+                    if (this.tenhoVotosNao)
+                    {
+                        this.tenhoVotosNao = false;
+                        voto = "S";
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultadoVotacao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
+                        
+                }
+                else break;
+            }
+
         }
 
         public void PosicionarPersonagem(string listaDeCartasAbreviadas, Dictionary<string, List<string>> personagens)

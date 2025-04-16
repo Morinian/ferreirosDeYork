@@ -208,9 +208,9 @@ namespace ferreirosDeYork
         }
         private void btnVotar_Click(object sender, EventArgs e)
         { 
-            jogador.Votar(cmbVotacao.Text.Substring(0, 1)); //Pega a primeira letra
-            // Limpando o ComboBox
-            cmbVotacao.Text = "";
+            //jogador.Votar(cmbVotacao.Text.Substring(0, 1)); //Pega a primeira letra
+            //// Limpando o ComboBox
+            //cmbVotacao.Text = "";
         }
         private void VerificarVez()
         {
@@ -263,7 +263,7 @@ namespace ferreirosDeYork
                 }
                 else if(lblStatusJogo.Text == "V")
                 {
-
+                    jogador.Votar();
                 }
                 
             }
