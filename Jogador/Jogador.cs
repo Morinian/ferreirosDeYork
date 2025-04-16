@@ -30,6 +30,8 @@ namespace ferreirosDeYork.Gameplay
 
         private string EscolherPersonagemPromocao(Dictionary<string, List<string>> personagens)
         {
+            //Remove todos os setores que não permitem promoção. 
+            //Só ocorre se o setor acima estiver cheio (4 personagens)
             string setorAtual;
             for (int setor = 1; setor <= 5; setor++)
             {
@@ -39,8 +41,12 @@ namespace ferreirosDeYork.Gameplay
             }
 
             Random random = new Random();
+
+            //Retorna uma key não removida do Dictionary, de maneira aleatoria, baseado na quantidade de keys restantes.
             string setorEscolhidoAleatoriamente = personagens.Keys.ElementAt(random.Next(personagens.Count));
+            //Escolhe um index aleatorio da key, representando um personagem do setor.
             int personagemEscolhidoAleatoriamente = random.Next(personagens[setorEscolhidoAleatoriamente].Count);
+            
             return personagens[setorEscolhidoAleatoriamente][personagemEscolhidoAleatoriamente];
         }
 
@@ -54,6 +60,7 @@ namespace ferreirosDeYork.Gameplay
                 MessageBox.Show(resulatdoPromocao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        //Se "tenhoVotosNao" for false, o voto sempre será sim. Se for true, o voto é randomizado
         public void Votar() 
         {
             string voto = "S";
@@ -63,6 +70,8 @@ namespace ferreirosDeYork.Gameplay
                 voto = rnd.Next(2) == 0 ? "S" : "N";
             }
 
+            /*Executa "Votar" até o voto passar, ou até um erro não relacionado com o uso
+             * acima do limite de vetos ocorrer*/
             while (true)
             {
                 string resultadoVotacao = Jogo.Votar(Convert.ToInt16(idJogador), senhaJogador, voto); //Pega o resultado 
