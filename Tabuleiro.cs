@@ -93,7 +93,7 @@ namespace ferreirosDeYork
             }
 
             //Mostrando os nomes
-            lblCartaFavorita.Text = string.Join(Environment.NewLine, cartasNaMao);
+            lblCartaFavorita.Text = string.Join(Environment.NewLine + Environment.NewLine, cartasNaMao);
 
             // Exibindo as cartas e imagens no formulário
             int yOffset = 199; // Posição inicial vertical
@@ -224,19 +224,6 @@ namespace ferreirosDeYork
                 }
             }
         }
-
-        private void btnPromover_Click(object sender, EventArgs e)
-        {
-            //jogador.PromoverPersonagem(cmbPersonagem.Text.Substring(0, 1)); //Pegando o resultado do ComboBox primeira letra
-            //// Limpando o ComboBox
-            //cmbPersonagem.Text = "";
-        }
-        private void btnVotar_Click(object sender, EventArgs e)
-        { 
-            //jogador.Votar(cmbVotacao.Text.Substring(0, 1)); //Pega a primeira letra
-            //// Limpando o ComboBox
-            //cmbVotacao.Text = "";
-        }
         private void VerificarVez()
         {
             string resultadoVerificaVez = Jogo.VerificarVez(Convert.ToInt32(idPartidaSelecionada));
@@ -267,6 +254,42 @@ namespace ferreirosDeYork
             }
         }
 
+        private void verificarPlacar()
+        {
+            string retornoJogador = Jogo.ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
+
+            // Tratando o retorno das partidas
+            retornoJogador = retornoJogador.Replace("\r", "");
+            string[] listaJogadores = retornoJogador.Split('\n');
+
+            List<string> placaresOponentes = new List<string>();
+            string meuplacar = "";
+
+            listaJogadores = listaJogadores.Where(l => !string.IsNullOrWhiteSpace(l)).ToArray();
+
+            foreach (string jogador in listaJogadores)
+            {
+                string[] partes = jogador.Split(',');
+
+                string idJogador = partes[0];
+                string placar = partes[partes.Length - 1];
+
+                if (idJogador == lblIdJogadorIdPartida.Text)
+                    meuplacar = placar;
+                else
+                    placaresOponentes.Add(placar);
+            }
+
+            List<string> placares = new List<string>
+            {
+                meuplacar
+            };
+            placares.AddRange(placaresOponentes);
+
+            lblPlacar.Text = string.Join(" x ", placares);
+
+        }
+
         private void tmrVerificaVez_Tick(object sender, EventArgs e)
         {
             //Inicio
@@ -280,6 +303,7 @@ namespace ferreirosDeYork
 
                 if (lblStatusJogo.Text == "S")
                 {
+                    verificarPlacar();
                     jogador.PosicionarPersonagem(listaDeCartasAbreviadas, personagens);
                 }
                 else if(lblStatusJogo.Text == "P")
@@ -290,7 +314,11 @@ namespace ferreirosDeYork
                 {
                     jogador.Votar();
                 }
-                
+                else if (lblStatusJogo.Text == "E")
+                {
+                    verificarPlacar();
+                }
+
             }
 
             //Fim

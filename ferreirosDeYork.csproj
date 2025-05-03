@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="KingMeServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Downloads\KingMeServer(1)\KingMeServer.dll</HintPath>
+      <HintPath>.\KingMeServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
