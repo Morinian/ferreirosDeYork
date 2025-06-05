@@ -100,15 +100,22 @@ namespace ferreirosDeYork.Gameplay
         {
             Random random = new Random();
 
+            //Cria uma Lista apenas com os personagens que não foram colocadas no tabuleiro
             HashSet<string> personagensNoTabuleiro = personagens.Values.SelectMany(p => p).ToHashSet();
             List<string> personagensDisponiveis = listaDeCartasAbreviadas
                 .Select(c => c.ToString())
                 .Where(p => !personagensNoTabuleiro.Contains(p))
                 .ToList();
 
-            string personagemEscolhido = personagensDisponiveis[random.Next(personagensDisponiveis.Count)];
+            //Escolhe personagem favorito, se disponivel
+            string personagemEscolhido;
+            List<string> favoritosNaoPosicionados = personagensDisponiveis
+                .Select(disponivel => disponivel.ToString())
+                .Where(disponivel => this.cartasNaMao.Contains(disponivel))
+                .ToList();
 
-            //Pegando o setor
+            //Pegando os setores Disponiveis
+            string setorEscolhido;
             List<string> setoresDisponiveis = new List<string>();
 
             for (int i = 1; i < 5; i++)
@@ -122,7 +129,17 @@ namespace ferreirosDeYork.Gameplay
                 }
             }
 
-            string setorEscolhido = setoresDisponiveis[random.Next(setoresDisponiveis.Count)];
+            if (favoritosNaoPosicionados.Count > 0)
+            {
+                personagemEscolhido = favoritosNaoPosicionados[random.Next(favoritosNaoPosicionados.Count)];
+                //Pegando o maior valor do setor dispovivel, conseguimos manter os favoritos em setores altos
+                setorEscolhido =  setoresDisponiveis.Select(int.Parse).Max().ToString();
+            }
+            else
+            {
+                personagemEscolhido = personagensDisponiveis[random.Next(personagensDisponiveis.Count)];
+                setorEscolhido = setoresDisponiveis[random.Next(setoresDisponiveis.Count)];
+            }
 
             //Chamada Função
             string resulatdoColocarPersonagem = Jogo.ColocarPersonagem(Convert.ToInt32(idJogador), senhaJogador, Convert.ToInt32(setorEscolhido), personagemEscolhido);
