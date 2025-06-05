@@ -312,7 +312,7 @@ namespace ferreirosDeYork
                 }
                 else if(lblStatusJogo.Text == "V")
                 {
-                    jogador.Votar();
+                    jogador.Votar(personagens);
                 }
                 else if (lblStatusJogo.Text == "E")
                 {

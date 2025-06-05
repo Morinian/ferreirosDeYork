@@ -95,13 +95,17 @@ namespace ferreirosDeYork.Gameplay
         }
 
         //Se "tenhoVotosNao" for false, o voto sempre será sim. Se for true, o voto é randomizado
-        public void Votar() 
+        public void Votar(Dictionary<string, List<string>> personagens) 
         {
             string voto = "S";
             if (this.tenhoVotosNao)
             {
-                Random rnd = new Random();
-                voto = rnd.Next(2) == 0 ? "S" : "N";
+                if (personagens.ContainsKey("10"))
+                {
+                    //Voto é igual a Não, se o candidato não for favorito
+                    if (!this.cartasNaMao.Contains(personagens["10"].First()))
+                        voto = "N";
+                }
             }
 
             /*Executa "Votar" até o voto passar, ou até um erro não relacionado com o uso
