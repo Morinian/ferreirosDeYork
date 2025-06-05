@@ -30,23 +30,57 @@ namespace ferreirosDeYork.Gameplay
 
         private string EscolherPersonagemPromocao(Dictionary<string, List<string>> personagens)
         {
-            //Remove todos os setores que não permitem promoção. 
+            //Adiciona em uma lista todos os setores que não permitem promoção. 
             //Só ocorre se o setor acima estiver cheio (4 personagens)
             string setorAtual;
+            List<string> setoresPromoImpossivel = new List<string>();
             for (int setor = 1; setor <= 5; setor++)
             {
                 setorAtual = setor.ToString();
                 if (personagens.ContainsKey(setorAtual) && personagens[setorAtual].Count == 4)
-                    personagens.Remove((setor - 1).ToString());
+                    setoresPromoImpossivel.Add((setor - 1).ToString());
             }
 
             Random random = new Random();
+
+            //Lista todos os personagens Não favoritos no setor 4 e promove 1 aleatóriamente, se possivel
+            if(!setoresPromoImpossivel.Contains("4") && personagens.ContainsKey("4"))
+            {
+                List<string> listNaoFavDignatarios = personagens["4"]
+                .Select(nobre => nobre.ToString())
+                .Where(nobre => !this.cartasNaMao.Contains(nobre))
+                .ToList();
+                if (listNaoFavDignatarios.Count > 0)
+                    return listNaoFavDignatarios[random.Next(listNaoFavDignatarios.Count)];
+            }
+            //Lista todos os personagens Não favoritos no setor 5 e promove 1 aleatóriamente (para rei), se possivel
+            if (!setoresPromoImpossivel.Contains("5") && personagens.ContainsKey("5"))
+            {
+                List<string> listNaoFavNobres = personagens["5"]
+                .Select(nobre => nobre.ToString())
+                .Where(nobre => !this.cartasNaMao.Contains(nobre))
+                .ToList();
+                if (listNaoFavNobres.Count > 0)
+                    return listNaoFavNobres[random.Next(listNaoFavNobres.Count)];
+            }
+            //Lista todos os personagens favoritos no setor 4 e promove 1 aleatóriamente, se for
+            //possivel e caso existam 2 ou mais personages favoritos no setor.
+            if (!setoresPromoImpossivel.Contains("4") && personagens.ContainsKey("4") && personagens["4"].Count >= 2) 
+            {
+                List<string> listFavDignatarios = personagens["4"]
+                .Select(nobre => nobre.ToString())
+                .Where(nobre => this.cartasNaMao.Contains(nobre))
+                .ToList();
+                return listFavDignatarios[random.Next(listFavDignatarios.Count)];
+            }
+
+            foreach (string setor in setoresPromoImpossivel)
+                personagens.Remove(setor);
 
             //Retorna uma key não removida do Dictionary, de maneira aleatoria, baseado na quantidade de keys restantes.
             string setorEscolhidoAleatoriamente = personagens.Keys.ElementAt(random.Next(personagens.Count));
             //Escolhe um index aleatorio da key, representando um personagem do setor.
             int personagemEscolhidoAleatoriamente = random.Next(personagens[setorEscolhidoAleatoriamente].Count);
-            
             return personagens[setorEscolhidoAleatoriamente][personagemEscolhidoAleatoriamente];
         }
 
@@ -107,7 +141,7 @@ namespace ferreirosDeYork.Gameplay
                 .Where(p => !personagensNoTabuleiro.Contains(p))
                 .ToList();
 
-            //Escolhe personagem favorito, se disponivel
+            //Cria uma Lista apenas com os personagens favorito disponiveis para setagem
             string personagemEscolhido;
             List<string> favoritosNaoPosicionados = personagensDisponiveis
                 .Select(disponivel => disponivel.ToString())
