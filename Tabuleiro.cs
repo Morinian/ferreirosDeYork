@@ -314,11 +314,9 @@ namespace ferreirosDeYork
                 {
                     jogador.Votar(personagens);
                 }
-                else if (lblStatusJogo.Text == "E")
-                {
-                    verificarPlacar();
-                }
-
+            } else if (lblStatusJogo.Text == "E")
+            {
+                verificarPlacar();
             }
 
             //Fim
