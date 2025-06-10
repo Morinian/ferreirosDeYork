@@ -8,18 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KingMeServer;
+using ferreirosDeYork.Gameplay;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ferreirosDeYork
 {
     public partial class Tabuleiro: Form
     {
-        public string nomeJogadorSelecionado { get; set; }
-        public string idJogadorSelecionado { get; set; }
-        public string senhaJogadorSelecionado { get; set; }
+        public Jogador jogador { get; set; }
         public string idPartidaSelecionada { get; set; }
 
-        private List<PictureBox> personagensPosicao {get; set;}
+        private Dictionary<string, List<PictureBox>> estruturaTabuleiro { get; set; }
 
         private string[] listaCartas = new string[]
         {
@@ -37,15 +36,20 @@ namespace ferreirosDeYork
                 "Ranulfo",
                 "Toshio"
         };
+
+        private const string listaDeCartasAbreviadas = "ABCEGHKLMQRT";
+
         //mapeamento de dicionario para minhas imagens
         private Dictionary<string, Image> imagemCartas;
-
-        public Tabuleiro()
+        Dictionary<string, List<string>> personagens = new Dictionary<string, List<string>>();
+        public Tabuleiro(Jogador jogador)
         {
             InitializeComponent();
             CarregarImagens();
             lblVjogo.Text = ("V." + Jogo.versao);
-            this.personagensPosicao = new List<PictureBox>();
+            this.jogador = jogador;
+            tmrVerificaVez.Enabled = true;
+            EstruturarTabuleiro();
         }
         private void CarregarImagens()
         {
@@ -67,24 +71,21 @@ namespace ferreirosDeYork
 
         }
 
-        public void AtualizarTelaTabuleiro()
+        public void AtualizarDadosTelaJogo()
         {
             List<string> cartasNaMao = new List<string>();
-            string resultadoCartas;
 
             //Atribuindo os valores do menu para o tabuleiro
-            lblNomeJogadorPartida.Text = nomeJogadorSelecionado;
-            lblIdJogadorIdPartida.Text = idJogadorSelecionado;
-            lblSenhaJogadorPartida.Text = senhaJogadorSelecionado;
-
-            resultadoCartas = Jogo.ListarCartas(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado);
+            lblNomeJogadorPartida.Text = jogador.nomeJogador;
+            lblIdJogadorIdPartida.Text = jogador.idJogador;
+            lblSenhaJogadorPartida.Text = jogador.senhaJogador;
 
             //Comparando a primeira letra com a lista de nomes
             for(int i = 0; i < 6; i++)
             {
                 for(int j = 0; j < 13; j++)
                 {
-                    if (listaCartas[j].Substring(0, 1) == resultadoCartas.Substring(i, 1))
+                    if (listaCartas[j].Substring(0, 1) == jogador.cartasNaMao.Substring(i, 1))
                     {
                         cartasNaMao.Add(listaCartas[j]);
                     }
@@ -92,8 +93,7 @@ namespace ferreirosDeYork
             }
 
             //Mostrando os nomes
-            lblCartaFavorita.Text = string.Join(Environment.NewLine, cartasNaMao);
-
+            lblCartaFavorita.Text = string.Join(Environment.NewLine + Environment.NewLine, cartasNaMao);
 
             // Exibindo as cartas e imagens no formulário
             int yOffset = 199; // Posição inicial vertical
@@ -123,7 +123,108 @@ namespace ferreirosDeYork
                 yOffset += 40;
             }
         }
-        private void btnVezJogador_Click(object sender, EventArgs e)
+
+        private void EstruturarTabuleiro()
+        {
+            this.estruturaTabuleiro = new Dictionary<string, List<PictureBox>>();
+
+            int baseX = 400; // Posição horizontal inicial
+            int baseY = 650; // Posição vertical inicial
+            int offsetX = 130; // Distância horizontal entre os personagens
+            int offsetY = 100; // Distância vertical entre setores
+
+            PictureBox posicaoSetor;
+            Point coordenadasPosicaoSetor;
+            string setorKey;
+            for (int setor = 0; setor <= 6; setor++)
+            {
+                setorKey = setor == 6 ? "10" : setor.ToString(); //Considera a key do Rei
+
+                //Cria o setor na estrutura do tabuleiro
+                this.estruturaTabuleiro.Add(setorKey, new List<PictureBox>());
+
+                for (int personagemPosicao = 0; personagemPosicao <= 4; personagemPosicao++) {
+
+                    // Calcula a posição no tabuleiro
+                    coordenadasPosicaoSetor = new Point(
+                            setor == 6 ? 590 //Posição X do Rei
+                            : baseX + (personagemPosicao * offsetX),
+                            setor == 6 ? 80 //Posição Y do Rei
+                            : baseY - (Convert.ToInt32(setor) * offsetY)
+                    );
+
+                    posicaoSetor = new PictureBox
+                    {
+                        Location = coordenadasPosicaoSetor,
+                        Size = new Size(80, 80), // Tamanho da imagem
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        BackColor = Color.Transparent
+                    };
+
+                    //Adiciona uma posição de personagem no setor
+                    this.estruturaTabuleiro[setorKey].Add(posicaoSetor);
+                    // Adicionando o PictureBox ao formulário
+                    this.Controls.Add(posicaoSetor);
+
+                    //Adiciona apenas 1 PictureBox para o rei
+                    if (setor == 6)
+                    {
+                        posicaoSetor.BringToFront();
+                        break;
+                    }
+                        
+                }
+            }
+        }
+
+        private void organizarTabuleiro(string [] estadoAtualTabuleiro)
+        {
+            personagens.Clear();
+            string[] personagemDados;
+
+            foreach (var personagem in estadoAtualTabuleiro)
+            {
+                personagemDados = personagem.Split(',');
+                if (!personagens.ContainsKey(personagemDados[0]))
+                {
+                    personagens[personagemDados[0]] = new List<string>();
+                }
+                personagens[personagemDados[0]].Add(personagemDados[1]);
+            }
+            gerarPersonagensTabuleiro();
+        }
+        
+        private void gerarPersonagensTabuleiro()
+        {
+            LimparImagensTabuleiro();
+            string personagemNomeCompleto;
+            string personagemNomeAbreviado;
+            foreach (var setor in personagens)
+            {
+                for(int personagemPosicao = 0; personagemPosicao < setor.Value.Count; personagemPosicao++)
+                {
+                    personagemNomeAbreviado = setor.Value[personagemPosicao];
+                    // Encontrando o nome completo do personagem pela primeira letra
+                    personagemNomeCompleto = listaCartas.FirstOrDefault(carta => carta.StartsWith(personagemNomeAbreviado));
+                    if (personagemNomeCompleto != null && this.imagemCartas.ContainsKey(personagemNomeCompleto))
+                    {
+                        this.estruturaTabuleiro[setor.Key][personagemPosicao].Image = this.imagemCartas[personagemNomeCompleto];
+                    }
+                }
+            } 
+        }
+
+        private void LimparImagensTabuleiro()
+        {
+            foreach(List<PictureBox> setor in this.estruturaTabuleiro.Values)
+            {
+                foreach (PictureBox personagemPosicao in setor)
+                {
+                    personagemPosicao.Image = null;
+                }
+            }
+        }
+        private void VerificarVez()
         {
             string resultadoVerificaVez = Jogo.VerificarVez(Convert.ToInt32(idPartidaSelecionada));
 
@@ -134,6 +235,7 @@ namespace ferreirosDeYork
             organizarTabuleiro(linhas.Skip(1).ToArray());
 
             lblJogadorIdVez.Text = resultadoVerificaVez.Split(',')[0];
+            lblStatusJogo.Text = resultadoVerificaVez.Split(',')[3].Trim().ToUpper()[0].ToString();
 
             //---JOGADORES---
             string retornoJogador = Jogo.ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
@@ -145,134 +247,82 @@ namespace ferreirosDeYork
             //conferindo os jogadores 
             for (int i = 0; i < listaJogadores.Length - 1; i++)
             {
-               if(lblJogadorIdVez.Text == listaJogadores[i].Split(',')[0])
+                if (lblJogadorIdVez.Text == listaJogadores[i].Split(',')[0])
                 {
                     lblJogadorNomeVez.Text = listaJogadores[i].Split(',')[1];
                 }
             }
         }
-        private void btnColocarPersonagem_Click(object sender, EventArgs e)
-        {
-            string personagemEscolhido = cmbPersonagem.Text.Substring(0,1); //Pegando o resultado do ComboBox primeira letra
-            int setorEscolhido = int.Parse(cmbSetor.Text.Split(',')[0]); //Pegando o resultado do ComboBox pegando só o numero
-            string resulatdoColocarPersonagem = Jogo.ColocarPersonagem(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado,Convert.ToInt32(setorEscolhido), personagemEscolhido);
 
-            //Tratando ERRO
-            if (resulatdoColocarPersonagem.StartsWith("ERRO"))
-                MessageBox.Show(resulatdoColocarPersonagem, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
+        private void verificarPlacar()
+        {
+            string retornoJogador = Jogo.ListarJogadores(Convert.ToInt32(idPartidaSelecionada));
+
+            // Tratando o retorno das partidas
+            retornoJogador = retornoJogador.Replace("\r", "");
+            string[] listaJogadores = retornoJogador.Split('\n');
+
+            List<string> placaresOponentes = new List<string>();
+            string meuplacar = "";
+
+            listaJogadores = listaJogadores.Where(l => !string.IsNullOrWhiteSpace(l)).ToArray();
+
+            foreach (string jogador in listaJogadores)
             {
-                // Limpando os ComboBoxes
-                cmbPersonagem.Text = "";
-                cmbSetor.Text = "";
+                string[] partes = jogador.Split(',');
+
+                string idJogador = partes[0];
+                string placar = partes[partes.Length - 1];
+
+                if (idJogador == lblIdJogadorIdPartida.Text)
+                    meuplacar = placar;
+                else
+                    placaresOponentes.Add(placar);
             }
-         }
 
-        private void organizarTabuleiro(string [] estadoAtualTabuleiro)
+            List<string> placares = new List<string>
+            {
+                meuplacar
+            };
+            placares.AddRange(placaresOponentes);
+
+            lblPlacar.Text = string.Join(" x ", placares);
+
+        }
+
+        private void tmrVerificaVez_Tick(object sender, EventArgs e)
         {
-            limparPosicionamentoPersonagens();
+            //Inicio
+            tmrVerificaVez.Enabled = false;
+            
+            //Jogador 
+            VerificarVez();
 
-            Dictionary<string, List<string>> personagens = new Dictionary<string, List<string>>();
-            string[] personagemDados;
-
-            foreach (var personagem in estadoAtualTabuleiro)
+            if(lblJogadorIdVez.Text == jogador.idJogador)
             {
 
-                personagemDados = personagem.Split(',');
-                if (!personagens.ContainsKey(personagemDados[0]))
+                if (lblStatusJogo.Text == "S")
                 {
-                    personagens[personagemDados[0]] = new List<string>();
+                    verificarPlacar();
+                    jogador.PosicionarPersonagem(listaDeCartasAbreviadas, personagens);
                 }
-                personagens[personagemDados[0]].Add(personagemDados[1]);
-            }
-            gerarPersonagensTabuleiro(personagens);
-        }
-        
-        private void gerarPersonagensTabuleiro(Dictionary<string, List<string>> personagens)
-        {
-            //AJUSTAR ISSO QUANDO IMPLEMENTAR O SETOR GRAFICAMENTE
-
-            int baseX = 400; // Posição horizontal inicial
-            int baseY = 650; // Posição vertical inicial
-            int offsetX = 130; // Distância horizontal entre os personagens
-            int offsetY = 100; // Distância vertical entre setores
-
-            foreach (var personagem in personagens)
-            {
-                for(int personagemPosicao = 0; personagemPosicao < personagem.Value.Count; personagemPosicao++)
+                else if(lblStatusJogo.Text == "P")
                 {
-                    gerarImgPersonagemPosicionada(personagem.Value[personagemPosicao],
-                        new Point(
-                                baseX + (personagemPosicao * offsetX),
-                                baseY - (Convert.ToInt32(personagem.Key) * offsetY)
-                        )
-                    );
+                    jogador.PromoverPersonagem(personagens);
                 }
-            } 
-        }
-
-        private void limparPosicionamentoPersonagens()
-        {
-            foreach (PictureBox perssonagem in this.personagensPosicao)
-            {
-                this.Controls.Remove(perssonagem);
-                perssonagem.Dispose();
-            }
-        }
-
-        private void gerarImgPersonagemPosicionada(string personagemNome, Point posicao)
-        {
-            // Encontrando o nome completo do personagem pela primeira letra
-            string personagemCompleto = listaCartas.FirstOrDefault(carta => carta.StartsWith(personagemNome));
-            if (personagemCompleto != null && imagemCartas.ContainsKey(personagemCompleto))
-            {
-                // Criando um PictureBox para exibir a imagem do personagem no tabuleiro
-                PictureBox pbPersonagem = new PictureBox
+                else if(lblStatusJogo.Text == "V")
                 {
-                    Image = imagemCartas[personagemCompleto],
-                    Location = posicao, // Calcula a posição no tabuleiro
-                    Size = new Size(80, 80), // Tamanho da imagem
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                };
+                    jogador.Votar(personagens);
+                }
+                else if (lblStatusJogo.Text == "E")
+                {
+                    verificarPlacar();
+                }
 
-                //Mapeia os containers
-                personagensPosicao.Add(pbPersonagem);
-
-                // Adicionando o PictureBox ao formulário
-                this.Controls.Add(pbPersonagem);
-
-                pbPersonagem.BringToFront();
-                pbPersonagem.BackColor = Color.Transparent;
             }
-        }
-        private void btnPromover_Click(object sender, EventArgs e)
-        {
-            string personagemEscolhido = cmbPersonagem.Text.Substring(0, 1); //Pegando o resultado do ComboBox primeira letra
-            string resulatdoPromocao = Jogo.Promover(Convert.ToInt32(idJogadorSelecionado), senhaJogadorSelecionado, personagemEscolhido);
 
-            //Tratando ERRO
-            if (resulatdoPromocao.StartsWith("ERRO"))
-                MessageBox.Show(resulatdoPromocao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
-            {
-                // Limpando o ComboBox
-                cmbPersonagem.Text = "";
-            }
-        }
-        private void btnVotar_Click(object sender, EventArgs e)
-        {
-            //Pega o primeira letra
-            string votar = cmbVotacao.Text.Substring(0, 1);
-            string resultadoVotacao = Jogo.Votar(Convert.ToInt16(idJogadorSelecionado), senhaJogadorSelecionado, votar); //Pega o resultado 
-
-            //Tratando ERRO
-            if (resultadoVotacao.StartsWith("ERRO"))
-                MessageBox.Show(resultadoVotacao, null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
-            {
-                // Limpando o ComboBox
-                cmbVotacao.Text = "";
-            }
+            //Fim
+            tmrVerificaVez.Enabled = true;
         }
         private void Tabuleiro_Load(object sender, EventArgs e)
         {

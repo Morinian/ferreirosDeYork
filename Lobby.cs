@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ferreirosDeYork.Gameplay;
 using KingMeServer;
 
 namespace ferreirosDeYork
@@ -20,7 +21,7 @@ namespace ferreirosDeYork
         public string idPartidaSelecionada { get; set; }
         public string nomePartidaSelecionada { get; set; }
         public string senhaPartidaSelecionada { get; set; }
-        public string nomeJogadorSelecionado { get; set; }
+        public string nomeJogador { get; set; }
         public string resultadoEntrarPartidaSelecionada { get; set; }
 
 
@@ -60,7 +61,7 @@ namespace ferreirosDeYork
             lblPartidaId.Text = idPartidaSelecionada;
             lblNomePartida.Text = nomePartidaSelecionada;
             lblSenhaPartida.Text = senhaPartidaSelecionada;
-            lblNomeJogadorPartida.Text = nomeJogadorSelecionado;
+            lblNomeJogadorPartida.Text = nomeJogador;
 
             //pergando o id e a senha do jogador que vem em uma string unica
             string[] dadosJogador = resultadoEntrarPartidaSelecionada.Split(',');
@@ -84,7 +85,8 @@ namespace ferreirosDeYork
         }
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
-            Tabuleiro tabuleiro = new Tabuleiro();
+            Jogador jogador;
+            Tabuleiro tabuleiro;
 
             // Pegando o valor das partidas
             string estadoPartida = "";
@@ -118,14 +120,13 @@ namespace ferreirosDeYork
                 }
                 else
                 {
+                    jogador = new Jogador(this.nomeJogador, lblIdJogadorIdPartida.Text, lblSenhaJogadorPartida.Text);
                     //Valores para o tabuleiro
-                    tabuleiro.nomeJogadorSelecionado = this.nomeJogadorSelecionado;
-                    tabuleiro.idJogadorSelecionado = lblIdJogadorIdPartida.Text;
-                    tabuleiro.senhaJogadorSelecionado = lblSenhaJogadorPartida.Text;
+                    tabuleiro = new Tabuleiro(jogador);
                     tabuleiro.idPartidaSelecionada = lblPartidaId.Text;
 
                     //chamando função que vai atualizar os valores na tela
-                    tabuleiro.AtualizarTelaTabuleiro();
+                    tabuleiro.AtualizarDadosTelaJogo();
 
                     tabuleiro.Show(); //iniciar lobby
                     this.Close();
@@ -133,14 +134,13 @@ namespace ferreirosDeYork
             }
             else if (estadoPartida == "J")
             {
+                jogador = new Jogador(this.nomeJogador, lblIdJogadorIdPartida.Text, lblSenhaJogadorPartida.Text);
                 //Valores para o tabuleiro
-                tabuleiro.nomeJogadorSelecionado = this.nomeJogadorSelecionado;
-                tabuleiro.idJogadorSelecionado = lblIdJogadorIdPartida.Text;
-                tabuleiro.senhaJogadorSelecionado = lblSenhaJogadorPartida.Text;
+                tabuleiro = new Tabuleiro(jogador);
                 tabuleiro.idPartidaSelecionada = lblPartidaId.Text;
 
                 //chamando função que vai atualizar os valores na tela
-                tabuleiro.AtualizarTelaTabuleiro();
+                tabuleiro.AtualizarDadosTelaJogo();
 
                 tabuleiro.Show(); //iniciar lobby
                 this.Close();
